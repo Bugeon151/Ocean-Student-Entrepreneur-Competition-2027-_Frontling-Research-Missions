@@ -2,7 +2,9 @@
 
 **The Research Lab Without the Lab.** Students reproduce part of a real published result from real public data, investigate their own question, and prove they can apply the method to data they have never seen — in the browser, with no account and no live AI writing their answers.
 
-Built for the Blue Ocean Student Entrepreneur Competition 2027 · Team PJ · [PRD v2.2](docs/PRD.md) · [Benchmark report](docs/BENCHMARK.md) · [Strategy canvas](docs/strategy-canvas.svg) · [Pitch draft](docs/PITCH.md)
+Built for the Blue Ocean Student Entrepreneur Competition 2027 · Team PJ · [PRD v2.3](docs/PRD.md) · [Benchmark report](docs/BENCHMARK.md) · [Strategy canvas](docs/strategy-canvas.svg) · [Pitch draft](docs/PITCH.md) · [Survey & interview kit](docs/INTERVIEWS.md) · [Submission checklist](docs/SUBMISSION_CHECKLIST.md)
+
+Live demo: https://bugeon151.github.io/Ocean-Student-Entrepreneur-Competition-2027-_Frontling-Research-Missions/
 
 ## Missions
 

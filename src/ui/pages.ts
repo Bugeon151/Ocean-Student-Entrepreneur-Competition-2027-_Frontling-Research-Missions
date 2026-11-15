@@ -17,7 +17,7 @@ export async function whyPage(): Promise<HTMLElement> {
   const box = (t: string, items: string[]) => h('div', { class: `errc ${t.toLowerCase()}` }, h('h3', {}, t), h('ul', {}, ...items.map((i) => h('li', {}, i))));
   return h('section', { class: 'overview why' },
     h('h1', {}, 'Why Frontling: a blue ocean in research education'),
-    h('p', {}, 'Mentored research programs offer deep human guidance at a high price per student. Free project libraries are cheap but do not check results. Frontling moves expert effort into reusable, verified missions, so it is free to deliver and still checks every result.'),
+    h('p', {}, 'Mentored research programs offer deep human guidance at a high price per student. Free project libraries are cheap but do not check results. Frontling moves the effort of designing and checking research into reusable, reviewed missions, so it is free to deliver and still checks every result.'),
     h('h2', {}, 'Strategy Canvas'),
     h('img', { src: 'strategy-canvas.svg', alt: 'Strategy canvas comparing Frontling with mentored research programs, an AI tutor and a free project library across eight factors', class: 'canvas' }),
     h('p', { class: 'small' }, S.scale),

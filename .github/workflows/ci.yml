@@ -9,8 +9,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npm run build          # build packs -> release gate (check) -> typecheck -> vite build
@@ -18,7 +18,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: CHROME_PATH=$(node -e "console.log(require('@playwright/test').chromium.executablePath())") npm run e2e
       - run: CHROME_PATH=$(node -e "console.log(require('@playwright/test').chromium.executablePath())") npm run bench
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with: { path: dist }
   deploy:
     if: github.ref == 'refs/heads/main'

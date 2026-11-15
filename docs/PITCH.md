@@ -2,7 +2,7 @@
 
 > Before recording: open the **official Blue Ocean pitch template** (sent with registration / on blueoceancompetition.org) and re-order the sections below to match it exactly. This draft follows the PRD §22.4 order and covers every tool the scoring page names (ERRC Grid, Strategy Canvas, Three Tiers of Noncustomers, Buyer Utility). Target length 4:40–4:55 (hard limits 3:00–5:00).
 >
-> Every number below is reproducible from the repository (`npm run verify`). Replace any line marked **[INTERVIEW]** only with real interview results; delete it if you have none.
+> Every number below is reproducible from the repository (`npm run verify`). Replace any line marked **[SURVEY/INTERVIEW]** only with real interview results; delete it if you have none.
 
 | Time | Section | On screen | Words |
 |---|---|---|---|
@@ -17,7 +17,7 @@
 ---
 
 ### 0:00–0:35 · Hook
-"Imagine two students who are equally curious about climate change. One has a professor as a mentor and a lab to work in. The other has a laptop and a school with no research teacher. Economists at Harvard found that children from the top 1% of income are about ten times more likely to become inventors than children from below-median families — and much of that gap comes from *exposure*, not ability. I'm [Name] from Team PJ, and we built Frontling Research Missions: the research lab without the lab."
+"Imagine two students who are equally curious about climate change. One has a professor as a mentor and a lab to work in. The other has a laptop and a school with no research teacher. Economists at Harvard found that children from the top 1% of income are about ten times more likely to become inventors than children from below-median families — and much of that gap comes from *exposure*, not ability. I'm [Name] from Team PJ, and we built Frontling Research Missions: the research lab without the lab. We give every student the first step of real research — reproducing a published result with real data, by themselves."
 
 ### 0:35–1:05 · The red ocean
 "Today a student who wants real research has two choices. Mentored programs pair you one-to-one with a PhD — excellent, but they start at thousands of dollars. Or free project libraries and AI chatbots — cheap, but nobody checks whether your result is right, and a 2025 study in PNAS found that students using AI without guardrails did worse when the AI was taken away. Expensive and verified, or free and unverified. Nobody offers free *and* verified."
@@ -45,7 +45,7 @@ That opens three tiers of noncustomers: students already struggling with chatbot
 
 The cost structure is the blue ocean. A mentor's hour is spent once, on one student. A mission is reviewed once and reused by every student after that. Students make zero AI calls — about 41 kilobytes per mission — so free static hosting covers about 2.4 million mission starts a month. Our cost is creating and reviewing missions, not serving students. At a five-dollar mission pack, a 250-dollar mission pays for itself after 56 sales — that's a hypothesis we're testing, not a result.
 
-**[INTERVIEW]** In interviews with [N] students and [M] teachers, [X] said … ."
+**[SURVEY/INTERVIEW]** We asked [N] students and [M] teachers. [X] of [N] students said … ; [Y] of [M] teachers said … . That's a small sample, so we treat it as a signal, not proof."
 
 ### 4:05–4:45 · Go-to-market
 "We start free for individual students, in English, with no sign-up — the fastest way to reach Tier 1. Next, mission packs for science clubs and STEM teachers. Then school licences, once schools tell us with real orders that they want them. Every new mission follows the same pipeline: find an open paper and open data, draft, compute the reference, human review, publish."
@@ -68,6 +68,7 @@ The cost structure is the blue ocean. A mentor's hour is spent once, on one stud
 | $250 mission / $5 / 56 sales | PRD §16.3 assumption | ✅ only as "hypothesis" |
 | Learning gains, purchase intent, user counts | — | ❌ never |
 | "Expert-reviewed" | Missions are INTERNAL_REVIEWED | ❌ say "reviewed", not "expert-reviewed", until a domain review is recorded |
+| "Students do real research" | Missions cover reproduction + guided investigation | ⚠️ say "the first step of real research" — don't imply original research |
 
 ## Shot list
 1. Library → GISTEMP card (2 s) · 2. Understand: wrong answer nudge (5 s) · 3. Reproduce: enter 2.31 → OUT_OF_RANGE → write attempt → unlock FAHRENHEIT hint (12 s) · 4. Enter 1.28 → VALID with NASA reference link (5 s) · 5. Prove: hints disabled banner, HadCRUT5 (6 s) · 6. Evidence: export JSON (4 s) · 7. `#/why` page: ERRC + canvas (B-roll for 2:10–3:05) · 8. docs/BENCHMARK.md table (B-roll for 3:05).

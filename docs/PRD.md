@@ -5,7 +5,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | **2.2 — Competition Edition (구현·경쟁분석 반영판)** |
+| 문서 버전 | **2.3 — Competition Edition (구현·경쟁분석·검증계획 반영판)** |
 | 작성일 | 2026년 11월 15일 |
 | 프로젝트 | Frontling Research Missions |
 | 목표 대회 | Blue Ocean Student Entrepreneur Competition 2027 |
@@ -20,6 +20,8 @@
 ---
 
 ## 0. 변경 요약
+
+**v2.2 → v2.3 (2026-11-16):** "expert-reviewed" 표현을 실제 상태(INTERNAL_REVIEWED)에 맞게 수정, 포지셔닝을 "연구의 첫 단계(재현)"로 명확화(§1.3), 수요 검증을 설문 + 인터뷰 병행으로 확정(§15.2, `docs/INTERVIEWS.md`), 제출 체크리스트 추가(`docs/SUBMISSION_CHECKLIST.md`).
 
 **v2.1 → v2.2 (2026-11-15):** FR-011 미션 저작 도구 구현, 경쟁 조사와 Strategy Canvas 완성(`public/strategy.json` → 앱 `#/why` 페이지·`docs/strategy-canvas.svg`), 실기기 측정 페이지(`#/device-check`) 추가, 5분 피치 대본 초안(`docs/PITCH.md`).
 
@@ -59,11 +61,13 @@ Frontling Research Missions는 전문 연구 멘토나 실험실이 없는 학�
 
 - **For students:** "Do real scientific research without an expensive mentor or laboratory."
 - **For schools:** "Run reproducible scientific research activities without designing every project from scratch."
-- **For Blue Ocean judges:** "We turn expert-reviewed research guidance from a service delivered one student at a time into a reusable educational product."
+- **For Blue Ocean judges:** "We turn research guidance from a service delivered one student at a time into reviewed, reusable missions that cost almost nothing to deliver."
 
 ## 1.3 제품의 본질
 
-Frontling은 AI 챗봇, 논문 요약 서비스, 논문 작성 도구가 아니다. **검증된 연구 수행 과정을 배포하는 플랫폼이다.** 핵심 가치는 학생이 스스로 연구하도록 돕는 체계가 얼마나 정확하고, 반복 가능하고, 저렴한가에 있다.
+Frontling은 AI 챗봇, 논문 요약 서비스, 논문 작성 도구가 아니다. **검증된 연구 수행 과정을 배포하는 플랫폼이다.**
+
+범위를 정직하게 정의한다. Frontling이 제공하는 것은 독창적 연구 전체가 아니라 **연구의 첫 단계 — 실제 논문의 결과를 실제 데이터로 직접 재현하고, 같은 방법을 새 데이터에 적용해 보는 경험**이다. 현재 미션의 계산은 평균·회귀·변화율 수준이며, 이는 결함이 아니라 "처음 연구를 시작하는 학생"이라는 대상에 맞춘 설계다. 더 깊은 분석 미션(Intermediate·Advanced)은 콘텐츠 확장으로 추가한다. 핵심 가치는 학생이 스스로 연구하도록 돕는 체계가 얼마나 정확하고, 반복 가능하고, 저렴한가에 있다.
 
 ## 1.4 결정 사항
 
@@ -476,13 +480,18 @@ STATIC HOSTING ──► STUDENT BROWSER
 | E. 성능·비용 | 크기, 로딩, 검증 지연, 저장, 메모리, 전송량, 호스팅 한도 | 목표 5/5 충족 |
 | E2E | 4단계 전체 흐름, 잠금, 모바일 탭, 키보드, 오류 복구, Keeling 진단, Why 페이지, Device check | 8/8 통과 |
 
-## 15.2 수요 인터뷰 (신규, 사용자 확보 아님)
+## 15.2 수요 검증: 설문 + 인터뷰 (사용자 확보 아님)
 
-- **대상:** 고등학생 10명 이상, 과학·STEM 교사 5명 이상
-- **방법:** 15분 화면 공유 데모 후 구조화 질문 5개 (현재 연구 활동 방식, 가장 막히는 지점, 이 제품을 쓸 상황, 학교가 돈을 낼 주체인지, 가장 필요 없는 기능)
-- **기록:** 날짜, 역할, 인용문(동의 받은 경우), 행동 신호(링크 요청, 수업 적용 의사 등)를 `docs/INTERVIEWS.md`에 기록
-- **사용 원칙:** "N명 중 M명이 ~라고 말했다"처럼 사실로만 발표에 쓴다. 구매 의향이나 학습 효과로 확대 해석하지 않는다.
-- **일정:** Sprint 5 (2027.1.16~1.31)
+| 방식 | 대상·목표 | 얻는 것 |
+|---|---|---|
+| 온라인 설문 (구글폼 또는 Tally) | 학생 30명+, 교사 10명+ | 발표용 비율 수치 ("응답자 N명 중 M%") |
+| 15분 대면·화상 인터뷰 | 설문 지원자 중 5~8명 | 막히는 지점 관찰, 인용, 행동 신호 |
+
+- **질문 원칙:** 미래 의향보다 과거 행동을 묻는다. 유도 질문 금지. 칭찬보다 행동 신호(링크 요청, 수업 적용 제안, 소개)를 기록한다.
+- **개인정보:** 이름·학교명·이메일을 수집하지 않는다. 첫 문항에서 익명 통계로 발표에 쓰인다는 동의를 받는다. 인용은 별도 동의를 받은 경우만 사용한다.
+- **사용 원칙:** "N명 중 M명이 ~라고 답했다"처럼 사실로만 쓴다. 구매 의향 검증이나 학습 효과로 확대 해석하지 않는다. 표본이 작고 편향될 수 있음을 함께 밝힌다.
+- **자료:** 학생용·교사용 설문 문항, 인터뷰 진행표, 기록표, 분석 방법은 `docs/INTERVIEWS.md`에 있다.
+- **일정:** 11/16~11/30 수집, 12월 첫 주 분석 후 PRD §16·§22 갱신.
 
 ## 15.3 주장하지 않는 것
 
@@ -551,7 +560,7 @@ STATIC HOSTING ──► STUDENT BROWSER
 | 재현성 | 필수 사례 전부 통과 | 통과 |
 | 제작 비용 | 실측값 확보 | ⏳ COST_LOG 기록 필요 |
 | 처리 성능 | 목표 충족 | 5/5 충족 |
-| 수요 인터뷰 | 15명 이상 | ⏳ 0명 |
+| 수요 검증 | 설문 40명+ / 인터뷰 5명+ | ⏳ 0명 (자료 준비 완료) |
 
 ## 18.2 대회 이후 지표
 
@@ -567,7 +576,7 @@ STATIC HOSTING ──► STUDENT BROWSER
 | 2 | 12.1–12.15 | Investigate, Prove, Evidence JSON, 로컬 저장 | ✅ 11.15 완료 |
 | 3 | 12.16–12.31 | RMP 형식 확정, Keeling 미션, 검토 상태, 라이선스 검사 | ✅ 11.15 완료 |
 | 4 | 1.1–1.15 | 정확성·오류·재현성·성능 테스트, 벤치마크 문서 | ✅ 자동화 완료 + 실기기 측정 도구 / ⏳ 실제 저사양 기기 1대 측정값 기록 |
-| 5 | 1.16–1.31 | **수요 인터뷰 15명+**, 제작비 실측, 경쟁 서비스 조사, ERRC·Strategy Canvas, 비고객 분석 | 🔶 경쟁 조사·Canvas·ERRC·비고객 완료 / 인터뷰·제작비 미완 |
+| 5 | 1.16–1.31 | **수요 검증(설문·인터뷰, 11월 말로 앞당김)**, 제작비 실측, 경쟁 서비스 조사, ERRC·Strategy Canvas, 비고객 분석 | 🔶 경쟁 조사·Canvas·ERRC·비고객 완료 / 인터뷰·제작비 미완 |
 | 6 | 2.1–2.10 | **공식 피치 템플릿 순서로** 5분 영어 피치 작성, 시연 녹화, 편집, 과장 표현 점검 | 🔶 대본 초안·주장 점검표·촬영 목록 완료(`docs/PITCH.md`) / 템플릿 대조·녹화 미완 |
 | 7 | 2.11–2.18 | 전체 QA, **미니 강좌 이수 확인**, 영상 3~5분 확인, YouTube 업로드(#blueoceancompetition), mp4 1GB 미만·제품명 파일명, 제출 | ⏳ |
 
@@ -682,7 +691,7 @@ STATIC HOSTING ──► STUDENT BROWSER
 
 **Frontling Research Missions — The Research Lab Without the Lab.**
 
-Frontling transforms real scientific research into reusable, expert-reviewed learning missions. Students reproduce published findings, investigate new questions, and document their work without relying on expensive individual mentorship or AI-generated answers. By separating expert content creation from student delivery, Frontling aims to make authentic, data-driven research education more accessible and economically scalable.
+Frontling turns real published science into reusable, reviewed learning missions — the first step of research: reproducing a real result yourself. Students reproduce published findings, investigate new questions, and document their work without relying on expensive individual mentorship or AI-generated answers. By separating content creation and review from student delivery, Frontling aims to make authentic, data-driven research education more accessible and economically scalable.
 
 **Real Science. Real Evidence. No Answers Handed to You.**
 
@@ -712,4 +721,4 @@ Frontling transforms real scientific research into reusable, expert-reviewed lea
 20. Khanmigo Review 2026 (pricing). https://www.kidsaitools.com/en/articles/khanmigo-review-2026
 21. THE Journal (2023), Khan Academy cuts district price of Khanmigo. https://thejournal.com/Articles/2023/11/16/Khan-Academy-Cuts-District-Price-of-Khanmigo-AI-Teaching-Assistant.aspx
 
-**End of PRD v2.2**
+**End of PRD v2.3**
