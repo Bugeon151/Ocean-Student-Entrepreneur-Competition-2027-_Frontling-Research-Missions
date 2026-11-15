@@ -1,0 +1,99 @@
+{
+  "mission_id": "gistemp-2024",
+  "version": "1.0.0",
+  "title": "Reproduce NASA's 2024 Record: How Warm Was Earth?",
+  "subject": "Climate Science",
+  "difficulty": "Beginner",
+  "summary": "Use NASA GISTEMP v4 monthly data to reproduce the published 2024 global temperature anomaly (1.28 °C above 1951–1980) and the recent warming trend, then apply the same method to an independent dataset (HadCRUT5).",
+  "source_doi": "10.1029/2018JD029522",
+  "paper_url": "https://doi.org/10.1029/2018JD029522",
+  "dataset_source": "NASA GISS Surface Temperature Analysis v4 (GISTEMP) and Met Office HadCRUT5, via the datasets/global-temp mirror",
+  "dataset_version": "datasets/global-temp@b90e8a349acb508d382d40d1cfa393c723bd82ef (data through 2025-12 used)",
+  "license": "Data: CC-BY-4.0 (datasets/global-temp packaging). Mission text: CC-BY-4.0, Team PJ.",
+  "estimated_duration": "60–90 minutes",
+  "prerequisites": [
+    "Averages (mean)",
+    "Reading a line chart",
+    "Spreadsheet or Python basics (helpful, not required)"
+  ],
+  "reproduction_scope": "Partial: the 2024 global annual mean anomaly and the 1975–2024 linear trend computed from the published monthly global means. The station homogenisation and spatial interpolation steps of GISTEMP are NOT reproduced.",
+  "reproduction_level": "R1",
+  "requirements": "Any modern browser. A spreadsheet (Google Sheets, Excel, LibreOffice) or Python for the Reproduce and Prove calculations.",
+  "review_status": "INTERNAL_REVIEWED",
+  "review_scope": [
+    "Reference values recomputed by two independent implementations",
+    "Published value cross-check (NASA: 1.28 °C for 2024)",
+    "Hint answer-leak scan",
+    "License check"
+  ],
+  "datasets": [
+    {
+      "id": "reproduce",
+      "file": "datasets/reproduce.csv",
+      "title": "GISTEMP v4 global monthly anomaly, 1880–2025",
+      "frequency": "monthly",
+      "value_col": "Anomaly_C",
+      "unit": "°C vs 1951–1980",
+      "source": "NASA GISS GISTEMP v4",
+      "columns": [
+        "Year",
+        "Month",
+        "Anomaly_C"
+      ],
+      "rows": 1752,
+      "bytes": 22231,
+      "sha256": "46a4a2f9cc86d45432f670281144e390a452bbae3ad126ec15887482f834d6e0"
+    },
+    {
+      "id": "investigate",
+      "file": "datasets/investigate.csv",
+      "title": "GISTEMP v4 global annual anomaly (mean of 12 months), 1880–2025",
+      "frequency": "annual",
+      "value_col": "Anomaly_C",
+      "unit": "°C vs 1951–1980",
+      "source": "Derived from reproduce.csv by the mission build script",
+      "columns": [
+        "Year",
+        "Anomaly_C"
+      ],
+      "rows": 146,
+      "bytes": 2138,
+      "sha256": "863f975210ff5b119991434789f3491eccc90ec914993109c78f68c84e292080"
+    },
+    {
+      "id": "transfer",
+      "file": "datasets/transfer.csv",
+      "title": "HadCRUT5 global monthly anomaly, 1850–2025",
+      "frequency": "monthly",
+      "value_col": "Anomaly_C",
+      "unit": "°C vs the dataset's own base period",
+      "source": "Met Office Hadley Centre / CRU HadCRUT5",
+      "columns": [
+        "Year",
+        "Month",
+        "Anomaly_C"
+      ],
+      "rows": 2112,
+      "bytes": 31286,
+      "sha256": "2b4b4a83b05218b9da35e2f19c4f2dfc9f80f01700b3ac703068d71f4a9e1070"
+    }
+  ],
+  "validation_version": "1.0.0",
+  "content_hash": "604297bf055d3d019ba1656859977f1f4c6347abc588dd90041494f9799c5536",
+  "files": {
+    "datasets/investigate.csv": "863f975210ff5b119991434789f3491eccc90ec914993109c78f68c84e292080",
+    "datasets/reproduce.csv": "46a4a2f9cc86d45432f670281144e390a452bbae3ad126ec15887482f834d6e0",
+    "datasets/transfer.csv": "2b4b4a83b05218b9da35e2f19c4f2dfc9f80f01700b3ac703068d71f4a9e1070",
+    "hints/hints.json": "04ae5b2661fda29f3f6d483b00e78aff427a572d9bc8f2ebaadfb8cf9b9fb050",
+    "licenses.json": "2b86db5637f25f93cb04017ee611b6592af62118ec643158b3e4a5879696877c",
+    "paper.json": "0dec3666cfed2657e075ec1954ab5f97c02b3e90d80489697430e9a1a56a955a",
+    "review/approval.json": "b31132f2250e10b0e3afb506b17e3e92a2b9515d675825c1386dba5ad3fe191a",
+    "review/checklist.json": "e994bcde76d7e73eb4428015686b632e9ac6e9c8e5bb44db1f1e856b38dc9030",
+    "stages/investigate.json": "7e1e5755dafaeab71dd15f32743d7ba9ac907fffedddc95ae1809a3947811fd4",
+    "stages/prove.json": "ec55d5009f9cd892ce7d9ae75d32124fe9b53c3a1edec09f72ad3ebd6fcfe05e",
+    "stages/reproduce.json": "e29c7feb2218911b4454701a4fe238e4c93bd40c1289c99622b35f4817e2a586",
+    "stages/understand.json": "d18c5db237160b57501d45e119f39661ee89e730f841bb58d1fe154cd9c7ac55",
+    "validation/rules.json": "c306a93666df6e400f6fd465736c4605082fb970eec49099aef60cf09578e251",
+    "validation/test-cases.json": "f119687bb26f2a0d29162158636c96626e142e421a0b3b8b3a28d58113ac8832"
+  }
+}

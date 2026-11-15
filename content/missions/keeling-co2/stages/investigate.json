@@ -1,0 +1,10 @@
+{
+  "intro": ["Explore the record. The 1976 paper says the rise was not steady and had recently accelerated — test that idea with today's data."],
+  "datasets": ["investigate"],
+  "suggested_questions": [
+    "Compare the mean growth rate of each decade since the 1960s. Is CO₂ growth accelerating?",
+    "Your 1959→1971 rise differs from 3.4%. Is the difference larger than the stated measurement uncertainty?",
+    "How many years did it take CO₂ to rise from 320 to 340 ppm, compared with 400 to 420 ppm?"
+  ],
+  "required": ["question", "method", "result", "interpretation", "limitations"]
+}

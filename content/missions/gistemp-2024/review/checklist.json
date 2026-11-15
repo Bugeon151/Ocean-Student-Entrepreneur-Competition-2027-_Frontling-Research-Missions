@@ -1,0 +1,12 @@
+{
+  "items": [
+    {"id": "paper-exists", "check": "Cited paper resolves via DOI", "result": "pass", "evidence": "https://doi.org/10.1029/2018JD029522"},
+    {"id": "data-access", "check": "Data publicly accessible and pinned to a commit", "result": "pass"},
+    {"id": "license", "check": "Data licence permits redistribution", "result": "pass", "evidence": "CC-BY-4.0"},
+    {"id": "reference", "check": "Reference values recomputed by independent implementation (tests/unit/benchmark-a.test.ts)", "result": "pass"},
+    {"id": "published", "check": "Reproduced value agrees with published value after rounding (1.28 °C)", "result": "pass"},
+    {"id": "hints", "check": "No approved hint reveals a reference value (automated scan)", "result": "pass"},
+    {"id": "scope", "check": "Reproduction scope states what is NOT reproduced", "result": "pass"},
+    {"id": "domain", "check": "Domain expert review", "result": "pending", "note": "Required before DOMAIN_REVIEWED. Not claimed."}
+  ]
+}

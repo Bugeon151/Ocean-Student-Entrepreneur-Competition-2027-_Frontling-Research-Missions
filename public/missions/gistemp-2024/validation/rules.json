@@ -1,0 +1,247 @@
+{
+  "validation_version": "1.0.0",
+  "rounding": "Compare unrounded student value to unrounded reference; VALID if |x - ref| <= tolerance. Values must have >= min_decimals decimals.",
+  "tasks": [
+    {
+      "id": "r1-annual-2024",
+      "stage": "reproduce",
+      "label": "2024 global annual mean anomaly",
+      "prompt": "What was the 2024 annual mean anomaly in °C (relative to 1951–1980)?",
+      "unit": "°C",
+      "dataset": "reproduce",
+      "compute": {
+        "op": "annual_mean",
+        "year": 2024
+      },
+      "tolerance": 0.006,
+      "min_decimals": 2,
+      "method": [
+        {
+          "key": "unit",
+          "label": "Unit of your result",
+          "type": "select",
+          "options": [
+            "°C",
+            "°F"
+          ],
+          "expected": "°C"
+        },
+        {
+          "key": "months",
+          "label": "Months averaged",
+          "type": "select",
+          "options": [
+            "January–December 2024 (12 months)",
+            "December 2023–November 2024",
+            "Fewer than 12 months"
+          ],
+          "expected": "January–December 2024 (12 months)"
+        }
+      ],
+      "signatures": [
+        {
+          "code": "FAHRENHEIT",
+          "value": 2.307001
+        },
+        {
+          "code": "FAHRENHEIT_ABSOLUTE",
+          "value": 34.307001
+        },
+        {
+          "code": "SUM_NOT_MEAN",
+          "value": 15.380004
+        },
+        {
+          "code": "DECIMAL_SHIFT",
+          "value": 12.81667
+        },
+        {
+          "code": "WRONG_YEAR",
+          "value": 1.1675
+        },
+        {
+          "code": "SIGN_FLIP",
+          "value": -1.281667
+        }
+      ],
+      "published": {
+        "value": 1.28,
+        "text": "NASA: 2024 was 1.28 °C above the 1951–1980 baseline",
+        "url": "https://science.nasa.gov/earth/explore/earth-indicators/global-temperature/"
+      },
+      "expected": 1.281667
+    },
+    {
+      "id": "r2-trend-1975-2024",
+      "stage": "reproduce",
+      "label": "Warming trend 1975–2024",
+      "prompt": "What is the OLS linear trend of annual mean anomalies from 1975 to 2024, in °C per decade?",
+      "unit": "°C/decade",
+      "dataset": "reproduce",
+      "compute": {
+        "op": "trend_per_decade",
+        "start": 1975,
+        "end": 2024
+      },
+      "tolerance": 0.002,
+      "min_decimals": 3,
+      "method": [
+        {
+          "key": "start",
+          "label": "First year used",
+          "type": "number",
+          "expected": "1975"
+        },
+        {
+          "key": "end",
+          "label": "Last year used",
+          "type": "number",
+          "expected": "2024"
+        },
+        {
+          "key": "unit",
+          "label": "Unit of your result",
+          "type": "select",
+          "options": [
+            "°C per decade",
+            "°C per year"
+          ],
+          "expected": "°C per decade"
+        }
+      ],
+      "signatures": [
+        {
+          "code": "PER_YEAR",
+          "value": 0.020326
+        },
+        {
+          "code": "SIGN_FLIP",
+          "value": -0.203256
+        },
+        {
+          "code": "PER_MONTH",
+          "value": 0.001694
+        },
+        {
+          "code": "FULL_PERIOD",
+          "value": 0.081176
+        }
+      ],
+      "expected": 0.203256
+    },
+    {
+      "id": "p1-hadcrut-2024",
+      "stage": "prove",
+      "label": "HadCRUT5 2024 annual mean anomaly",
+      "prompt": "Using transfer.csv, what was the 2024 annual mean anomaly in °C (relative to the dataset's own baseline)?",
+      "unit": "°C",
+      "dataset": "transfer",
+      "compute": {
+        "op": "annual_mean",
+        "year": 2024
+      },
+      "tolerance": 0.006,
+      "min_decimals": 2,
+      "method": [
+        {
+          "key": "unit",
+          "label": "Unit of your result",
+          "type": "select",
+          "options": [
+            "°C",
+            "°F"
+          ],
+          "expected": "°C"
+        },
+        {
+          "key": "months",
+          "label": "Months averaged",
+          "type": "select",
+          "options": [
+            "January–December 2024 (12 months)",
+            "December 2023–November 2024",
+            "Fewer than 12 months"
+          ],
+          "expected": "January–December 2024 (12 months)"
+        }
+      ],
+      "signatures": [
+        {
+          "code": "FAHRENHEIT",
+          "value": 2.104214
+        },
+        {
+          "code": "SUM_NOT_MEAN",
+          "value": 14.028096
+        },
+        {
+          "code": "WRONG_YEAR",
+          "value": 1.109792
+        },
+        {
+          "code": "WRONG_DATASET",
+          "value": 1.281667
+        }
+      ],
+      "expected": 1.169008
+    },
+    {
+      "id": "p2-hadcrut-trend",
+      "stage": "prove",
+      "label": "HadCRUT5 warming trend 1975–2024",
+      "prompt": "Using transfer.csv, what is the OLS trend of annual means from 1975 to 2024, in °C per decade?",
+      "unit": "°C/decade",
+      "dataset": "transfer",
+      "compute": {
+        "op": "trend_per_decade",
+        "start": 1975,
+        "end": 2024
+      },
+      "tolerance": 0.001,
+      "min_decimals": 3,
+      "method": [
+        {
+          "key": "start",
+          "label": "First year used",
+          "type": "number",
+          "expected": "1975"
+        },
+        {
+          "key": "end",
+          "label": "Last year used",
+          "type": "number",
+          "expected": "2024"
+        },
+        {
+          "key": "unit",
+          "label": "Unit of your result",
+          "type": "select",
+          "options": [
+            "°C per decade",
+            "°C per year"
+          ],
+          "expected": "°C per decade"
+        }
+      ],
+      "signatures": [
+        {
+          "code": "PER_YEAR",
+          "value": 0.020493
+        },
+        {
+          "code": "SIGN_FLIP",
+          "value": -0.204926
+        },
+        {
+          "code": "FULL_PERIOD",
+          "value": 0.064834
+        },
+        {
+          "code": "WRONG_DATASET",
+          "value": 0.203256
+        }
+      ],
+      "expected": 0.204926
+    }
+  ]
+}

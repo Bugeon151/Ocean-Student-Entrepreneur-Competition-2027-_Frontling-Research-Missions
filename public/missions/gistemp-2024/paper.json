@@ -1,0 +1,5 @@
+{
+  "primary": {"title": "Improvements in the GISTEMP Uncertainty Model", "authors": "Lenssen, N. J. L., Schmidt, G. A., Hansen, J. E., Menne, M. J., Persin, A., Ruedy, R., & Zyss, D.", "year": 2019, "venue": "Journal of Geophysical Research: Atmospheres, 124(12), 6307–6326", "doi": "10.1029/2018JD029522", "url": "https://doi.org/10.1029/2018JD029522"},
+  "finding": {"text": "NASA reports that global temperatures in 2024 were 1.28 °C (2.30 °F) above the 1951–1980 baseline, the warmest year on record.", "url": "https://science.nasa.gov/earth/explore/earth-indicators/global-temperature/"},
+  "related": [{"title": "GISTEMP v4 dataset", "url": "https://data.giss.nasa.gov/gistemp/"}, {"title": "HadCRUT5", "url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/"}]
+}

@@ -1,0 +1,100 @@
+{
+  "mission_id": "keeling-co2",
+  "version": "1.0.0",
+  "title": "The Keeling Curve: Re-check a 1976 Finding",
+  "subject": "Climate Science",
+  "difficulty": "Beginner",
+  "summary": "Keeling et al. (1976) reported that annual average CO₂ at Mauna Loa rose 3.4% between 1959 and 1971. Recompute that rise from today's NOAA record, quantify the recent growth rate, and apply the method to raw monthly data.",
+  "source_doi": "10.3402/tellusa.v28i6.11322",
+  "paper_url": "https://doi.org/10.3402/tellusa.v28i6.11322",
+  "dataset_source": "NOAA Global Monitoring Laboratory, Mauna Loa CO₂ annual and monthly means, via the datasets/co2-ppm mirror",
+  "dataset_version": "datasets/co2-ppm@52f2be52ee6145eaad67367959af9b1b0a0bd83e (annual 1959–2025, monthly 1958-03–2026-09)",
+  "license": "Data: ODC-PDDL-1.0 (public domain). Paper: CC BY (open access). Mission text: CC-BY-4.0, Team PJ.",
+  "estimated_duration": "45–75 minutes",
+  "prerequisites": [
+    "Percent change",
+    "Averages (mean)",
+    "Spreadsheet or Python basics (helpful, not required)"
+  ],
+  "reproduction_scope": "Partial: the 1959→1971 percentage rise of the annual mean and recent growth rates, computed from NOAA's current record. The 1976 paper's own calibration and data processing are NOT reproduced, so a small, explainable difference from 3.4% is expected.",
+  "reproduction_level": "R1",
+  "requirements": "Any modern browser. A spreadsheet (Google Sheets, Excel, LibreOffice) or Python.",
+  "review_status": "INTERNAL_REVIEWED",
+  "review_scope": [
+    "Reference values recomputed by two independent implementations",
+    "Published value cross-check with documented deviation",
+    "Hint answer-leak scan",
+    "License check"
+  ],
+  "datasets": [
+    {
+      "id": "reproduce",
+      "file": "datasets/reproduce.csv",
+      "title": "Mauna Loa CO₂ annual mean, 1959–2025",
+      "frequency": "annual",
+      "value_col": "CO2_ppm",
+      "unit": "ppm",
+      "source": "NOAA GML",
+      "columns": [
+        "Year",
+        "CO2_ppm",
+        "Uncertainty_ppm"
+      ],
+      "rows": 67,
+      "bytes": 1168,
+      "sha256": "91444a4d389210c1b8525d4d81de6d26389a47fe4caab96902f8a434db689f89"
+    },
+    {
+      "id": "investigate",
+      "file": "datasets/investigate.csv",
+      "title": "Mauna Loa CO₂ annual mean, 1959–2025",
+      "frequency": "annual",
+      "value_col": "CO2_ppm",
+      "unit": "ppm",
+      "source": "NOAA GML",
+      "columns": [
+        "Year",
+        "CO2_ppm",
+        "Uncertainty_ppm"
+      ],
+      "rows": 67,
+      "bytes": 1168,
+      "sha256": "91444a4d389210c1b8525d4d81de6d26389a47fe4caab96902f8a434db689f89"
+    },
+    {
+      "id": "transfer",
+      "file": "datasets/transfer.csv",
+      "title": "Mauna Loa CO₂ monthly mean, 1958-03 to 2026-09",
+      "frequency": "monthly",
+      "value_col": "CO2_ppm",
+      "unit": "ppm",
+      "source": "NOAA GML",
+      "columns": [
+        "Year",
+        "Month",
+        "CO2_ppm"
+      ],
+      "rows": 823,
+      "bytes": 11745,
+      "sha256": "2abc262d85bfb122b8402562b404a459db5beebd831580017006af6a7a829a07"
+    }
+  ],
+  "validation_version": "1.0.0",
+  "content_hash": "b4ee114fee9ab0d1737c5047bc9e4d0ea42f30e32c196da3e3da51aed9ea8e2e",
+  "files": {
+    "datasets/investigate.csv": "91444a4d389210c1b8525d4d81de6d26389a47fe4caab96902f8a434db689f89",
+    "datasets/reproduce.csv": "91444a4d389210c1b8525d4d81de6d26389a47fe4caab96902f8a434db689f89",
+    "datasets/transfer.csv": "2abc262d85bfb122b8402562b404a459db5beebd831580017006af6a7a829a07",
+    "hints/hints.json": "7723408a2653170cbe0dd5678a4882389e6a9e19a8ecace16ed162f826618192",
+    "licenses.json": "1d93e792e6bb96b44db10258878daf6ffb34a581f1b991566591febeb35e4972",
+    "paper.json": "85ed33b16081f44094ffd40d2f3cc3a2531f8508384a6721a861e1a2eb02e34b",
+    "review/approval.json": "b31132f2250e10b0e3afb506b17e3e92a2b9515d675825c1386dba5ad3fe191a",
+    "review/checklist.json": "e4f0389c71b37a4676bb12d56ca7d6e38d8981f9a14b08b022b152ed756369d4",
+    "stages/investigate.json": "3e4c81fc3e4af66c2f2d1f15f67c18a442c116548cb59db66fd723d6593cb754",
+    "stages/prove.json": "7c0d45c20ce435b33bab2f71d83d120db1bc543fdf48086832243729412b9a81",
+    "stages/reproduce.json": "72d04edb94daf2bd548d2f82babe3e112c5358cb7889e0e27a3c3c25aaf4af52",
+    "stages/understand.json": "bbfca5f9d2b740e5d3367c6580e7681d6fd9d1055b79d31f5270f7470ffceca8",
+    "validation/rules.json": "ec072fb07553df1d97959a81bbb64ef59483cd170f9f1c347fe6ebbcbdbed875",
+    "validation/test-cases.json": "446afcc10fd0b9350994e09403982eb087977e4817ae72b0971b310d6b70ba64"
+  }
+}

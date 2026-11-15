@@ -1,0 +1,5 @@
+{
+  "primary": {"title": "Atmospheric carbon dioxide variations at Mauna Loa Observatory, Hawaii", "authors": "Keeling, C. D., Bacastow, R. B., Bainbridge, A. E., Ekdahl, C. A., Guenther, P. R., Waterman, L. S., & Chin, J. F. S.", "year": 1976, "venue": "Tellus, 28(6), 538–551", "doi": "10.3402/tellusa.v28i6.11322", "url": "https://doi.org/10.3402/tellusa.v28i6.11322"},
+  "finding": {"text": "The abstract reports that the annual average CO₂ concentration rose 3.4% between 1959 and 1971.", "url": "https://doi.org/10.3402/tellusa.v28i6.11322"},
+  "related": [{"title": "NOAA GML — Trends in atmospheric CO₂", "url": "https://gml.noaa.gov/ccgg/trends/"}]
+}

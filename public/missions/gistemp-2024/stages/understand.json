@@ -1,0 +1,27 @@
+{
+  "research_question": "How much warmer was Earth in 2024 than the 1951–1980 average, and how fast has it been warming since 1975?",
+  "intro": [
+    "Scientists rarely report Earth's absolute temperature. They report an anomaly: how much warmer or cooler a period was compared with a fixed reference period (the baseline).",
+    "NASA's GISTEMP v4 combines land station and sea-surface measurements into a single global monthly anomaly relative to 1951–1980. NASA reported 2024 as 1.28 °C above that baseline.",
+    "In this mission you will rebuild that headline number from the monthly data yourself, measure the warming trend, and then test whether your method works on a dataset you have never seen."
+  ],
+  "concepts": [
+    {"term": "Temperature anomaly", "def": "The difference between a measured temperature and the average over a baseline period. Positive = warmer than the baseline."},
+    {"term": "Baseline (base period)", "def": "The reference period used to compute anomalies. GISTEMP uses 1951–1980. Different datasets may use different baselines, so their anomaly values are not directly comparable."},
+    {"term": "Annual mean", "def": "The average of the 12 monthly values of a calendar year (January–December)."},
+    {"term": "Linear trend", "def": "The slope of the straight line that best fits the data by ordinary least squares (OLS). Reported here in °C per decade (slope per year × 10)."},
+    {"term": "Reproduction", "def": "Recomputing a published result from the same data and method. Here we reproduce part of the analysis (R1), not GISTEMP's full station processing."},
+    {"term": "Tolerance", "def": "The documented acceptable difference between your value and the reference calculation, which allows for honest rounding."}
+  ],
+  "data_structure": {
+    "dataset": "reproduce",
+    "description": "One row per month. Columns: Year (e.g. 2024), Month (1–12), Anomaly_C (°C relative to 1951–1980)."
+  },
+  "quiz": [
+    {"id": "q1", "q": "A month has an anomaly of +0.50 °C in GISTEMP. What does that mean?", "options": ["The global temperature was 0.50 °C", "It was 0.50 °C warmer than the 1951–1980 average for that time", "It was 0.50 °C warmer than the previous month", "The thermometers had an error of 0.50 °C"], "answer": 1, "feedback": {"0": "An anomaly is not an absolute temperature — think about what it is compared with.", "2": "Anomalies are not month-to-month changes. What fixed reference is used?", "3": "Anomalies describe climate, not instrument error. Re-read the definition of baseline."}},
+    {"id": "q2", "q": "Which calculation gives the 2024 annual mean anomaly?", "options": ["Sum of the 12 monthly anomalies of 2024", "Average of the 12 monthly anomalies of 2024", "The December 2024 value", "Average of 2023 and 2024"], "answer": 1, "feedback": {"0": "A sum grows with the number of months. What statistic stays on the same scale as one month?", "2": "One month can be unusually warm or cold. Use the whole calendar year.", "3": "The question asks about one calendar year only."}},
+    {"id": "q3", "q": "Dataset A uses a 1951–1980 baseline and dataset B a different baseline. Which comparison is fair without adjustment?", "options": ["Comparing their 2024 anomaly values directly", "Comparing their warming trends (°C per decade)", "Neither can ever be compared", "Only the December values"], "answer": 1, "feedback": {"0": "A baseline shift moves every value up or down by a constant — what quantity is unaffected by a constant shift?", "2": "Some quantities do not depend on the baseline. Which one?", "3": "Picking one month does not remove the baseline offset."}},
+    {"id": "q4", "q": "A trend of 0.02 °C per year equals how much per decade?", "options": ["0.002 °C per decade", "0.02 °C per decade", "0.2 °C per decade", "2 °C per decade"], "answer": 2, "feedback": {"0": "A decade is longer than a year — should the number get larger or smaller?", "1": "Per year and per decade are different units.", "3": "Check how many years are in a decade."}}
+  ],
+  "data_check": {"id": "dc1", "q": "Open the data preview. How many rows does one complete year have in reproduce.csv?", "options": ["1", "4", "12", "365"], "answer": 2, "feedback": {"0": "Look at the Month column.", "1": "This is monthly, not quarterly, data.", "3": "This dataset is not daily."}}
+}

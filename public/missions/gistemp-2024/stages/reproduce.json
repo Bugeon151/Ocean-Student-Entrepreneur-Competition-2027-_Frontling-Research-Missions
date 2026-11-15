@@ -1,0 +1,12 @@
+{
+  "intro": ["Download reproduce.csv (or copy it from the preview) and compute the two results below in a spreadsheet or Python. Record the analysis conditions you actually used — the validator checks both your number and your method."],
+  "steps": [
+    "Filter the rows where Year = 2024 and confirm there are 12 months.",
+    "Average the 12 Anomaly_C values. Keep at least 2 decimal places.",
+    "Compute the annual mean for every year from 1975 to 2024 (50 values).",
+    "Fit an ordinary least-squares line (Year on the x-axis, annual mean on the y-axis). In a spreadsheet use =SLOPE(y_range, x_range).",
+    "Convert the slope from °C per year to °C per decade and keep at least 3 decimal places."
+  ],
+  "tasks": ["r1-annual-2024", "r2-trend-1975-2024"],
+  "rounding": "Do not round intermediate results. Report the final value with at least the stated number of decimals. A result is VALID when |your value − reference| ≤ tolerance."
+}

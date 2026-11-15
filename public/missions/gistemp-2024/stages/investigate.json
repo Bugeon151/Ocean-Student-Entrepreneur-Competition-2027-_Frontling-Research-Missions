@@ -1,0 +1,11 @@
+{
+  "intro": ["Now ask your own question. Use the analysis tool to compute means and trends over any period, compare periods, and record what you find. Unexpected results are welcome — explaining them is research."],
+  "datasets": ["investigate"],
+  "suggested_questions": [
+    "Is the warming trend since 2000 faster or slower than 1975–1999?",
+    "How sensitive is the trend to the start year you choose (e.g. 1970, 1980, 1990)?",
+    "Which decade had the largest jump in mean anomaly compared with the previous decade?",
+    "Was there any 15-year period after 1975 with a negative trend?"
+  ],
+  "required": ["question", "method", "result", "interpretation", "limitations"]
+}

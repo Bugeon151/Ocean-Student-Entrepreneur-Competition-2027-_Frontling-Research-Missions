@@ -1,0 +1,24 @@
+{
+  "research_question": "Does today's Mauna Loa record confirm the 3.4% rise in CO₂ that Keeling and colleagues reported for 1959–1971, and how fast is CO₂ rising now?",
+  "intro": [
+    "In 1958 Charles David Keeling began continuous CO₂ measurements at Mauna Loa Observatory in Hawaii. The record — the Keeling Curve — is one of the most important datasets in climate science.",
+    "In 1976 Keeling and colleagues reported that the annual average CO₂ concentration rose 3.4% between 1959 and 1971.",
+    "NOAA still publishes the Mauna Loa record, recalibrated to modern standards. You will check whether the 1976 finding holds up with today's data, and explain any difference."
+  ],
+  "concepts": [
+    {"term": "ppm (parts per million)", "def": "Number of CO₂ molecules per million molecules of dry air. 420 ppm = 0.042%."},
+    {"term": "Annual mean", "def": "The average of the 12 monthly means of a calendar year."},
+    {"term": "Percent change", "def": "(new − old) ÷ old × 100. The base (denominator) is the earlier value."},
+    {"term": "Growth rate", "def": "Change per year, in ppm per year. The mean growth over years A..B is (value in B − value in A−1) ÷ (B − A + 1)."},
+    {"term": "Calibration scale", "def": "The reference gases that define what '1 ppm' means. Scales have been revised over decades, so old and new numbers can differ slightly."},
+    {"term": "Seasonal cycle", "def": "CO₂ falls in the Northern Hemisphere growing season and rises in winter. Annual means remove most of this cycle."}
+  ],
+  "data_structure": {"dataset": "reproduce", "description": "One row per year. Columns: Year, CO2_ppm (annual mean), Uncertainty (ppm)."},
+  "quiz": [
+    {"id": "q1", "q": "CO₂ goes from 300 ppm to 330 ppm. What is the percent change?", "options": ["30%", "10%", "9.1%", "1.1%"], "answer": 1, "feedback": {"0": "That is the change in ppm, not percent.", "2": "Which value is the base: the earlier or the later one?", "3": "Re-check the division: the change is 30 ppm."}},
+    {"id": "q2", "q": "Why do scientists use annual means instead of single months to compare years?", "options": ["Monthly data are secret", "Annual means remove most of the seasonal cycle", "Annual means are always larger", "Months have different lengths"], "answer": 1, "feedback": {"0": "Monthly data are public — you will use them in Prove.", "2": "Averaging does not make values systematically larger.", "3": "Month length is not the main issue. Think about plants and seasons."}},
+    {"id": "q3", "q": "Values: 2014 = 380 ppm, 2024 = 400 ppm. What is the mean growth rate for 2015–2024?", "options": ["2.0 ppm/yr", "2.22 ppm/yr", "20 ppm/yr", "0.2 ppm/yr"], "answer": 0, "feedback": {"1": "Count the yearly steps from 2014 to 2024. Is it 9 or 10?", "2": "That is the total change, not a rate per year.", "3": "Check the decimal point."}},
+    {"id": "q4", "q": "If your recomputed value differs slightly from the 1976 paper, what is the most scientific response?", "options": ["Change your number to match the paper", "Conclude the paper was wrong", "Document the difference and look for a methodological reason", "Ignore the paper"], "answer": 2, "feedback": {"0": "Never adjust results to match expectations.", "1": "A small difference has many possible causes — calibration, data versions, averaging.", "3": "The paper is the claim being tested."}}
+  ],
+  "data_check": {"id": "dc1", "q": "Open the data preview. What is the first year in reproduce.csv?", "options": ["1958", "1959", "1971", "1976"], "answer": 1, "feedback": {"0": "Measurements began in 1958, but is 1958 a complete year in the annual file?", "2": "Look at the first data row.", "3": "1976 is the paper's publication year."}}
+}

@@ -1,0 +1,890 @@
+{
+  "cases": [
+    {
+      "task": "r1-annual-2024",
+      "name": "exact reference",
+      "input": {
+        "value": "1.281667",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "1.28",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "1.287367",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "missing method field",
+      "input": {
+        "value": "1.281667",
+        "method": {
+          "unit": "",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "decimal comma",
+      "input": {
+        "value": "1,281667",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "unit text in value",
+      "input": {
+        "value": "1.281667 °C",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "too few decimals",
+      "input": {
+        "value": "1.3",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "1.281667",
+        "method": {
+          "unit": "°F",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature FAHRENHEIT",
+      "input": {
+        "value": "2.307001",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FAHRENHEIT"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature FAHRENHEIT_ABSOLUTE",
+      "input": {
+        "value": "34.307001",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FAHRENHEIT_ABSOLUTE"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature SUM_NOT_MEAN",
+      "input": {
+        "value": "15.380004",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SUM_NOT_MEAN"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature DECIMAL_SHIFT",
+      "input": {
+        "value": "12.816670",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "DECIMAL_SHIFT"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature WRONG_YEAR",
+      "input": {
+        "value": "1.167500",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_YEAR"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "signature SIGN_FLIP",
+      "input": {
+        "value": "-1.281667",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SIGN_FLIP"
+      }
+    },
+    {
+      "task": "r1-annual-2024",
+      "name": "far off",
+      "input": {
+        "value": "1.904667",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "exact reference",
+      "input": {
+        "value": "0.203256",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "0.203",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "0.205156",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "missing method field",
+      "input": {
+        "value": "0.203256",
+        "method": {
+          "start": "",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "decimal comma",
+      "input": {
+        "value": "0,203256",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "unit text in value",
+      "input": {
+        "value": "0.203256 °C/decade",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "too few decimals",
+      "input": {
+        "value": "0.20",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "0.203256",
+        "method": {
+          "start": "1976",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "signature PER_YEAR",
+      "input": {
+        "value": "0.020326",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PER_YEAR"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "signature SIGN_FLIP",
+      "input": {
+        "value": "-0.203256",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SIGN_FLIP"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "signature PER_MONTH",
+      "input": {
+        "value": "0.001694",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PER_MONTH"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "signature FULL_PERIOD",
+      "input": {
+        "value": "0.081176",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FULL_PERIOD"
+      }
+    },
+    {
+      "task": "r2-trend-1975-2024",
+      "name": "far off",
+      "input": {
+        "value": "0.826256",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "exact reference",
+      "input": {
+        "value": "1.169008",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "1.17",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "1.174708",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "missing method field",
+      "input": {
+        "value": "1.169008",
+        "method": {
+          "unit": "",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "decimal comma",
+      "input": {
+        "value": "1,169008",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "unit text in value",
+      "input": {
+        "value": "1.169008 °C",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "too few decimals",
+      "input": {
+        "value": "1.2",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "1.169008",
+        "method": {
+          "unit": "°F",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "signature FAHRENHEIT",
+      "input": {
+        "value": "2.104214",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FAHRENHEIT"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "signature SUM_NOT_MEAN",
+      "input": {
+        "value": "14.028096",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SUM_NOT_MEAN"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "signature WRONG_YEAR",
+      "input": {
+        "value": "1.109792",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_YEAR"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "signature WRONG_DATASET",
+      "input": {
+        "value": "1.281667",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_DATASET"
+      }
+    },
+    {
+      "task": "p1-hadcrut-2024",
+      "name": "far off",
+      "input": {
+        "value": "1.792008",
+        "method": {
+          "unit": "°C",
+          "months": "January–December 2024 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "exact reference",
+      "input": {
+        "value": "0.204926",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "0.205",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "0.205876",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "missing method field",
+      "input": {
+        "value": "0.204926",
+        "method": {
+          "start": "",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "decimal comma",
+      "input": {
+        "value": "0,204926",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "unit text in value",
+      "input": {
+        "value": "0.204926 °C/decade",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "too few decimals",
+      "input": {
+        "value": "0.20",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "0.204926",
+        "method": {
+          "start": "1976",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "signature PER_YEAR",
+      "input": {
+        "value": "0.020493",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PER_YEAR"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "signature SIGN_FLIP",
+      "input": {
+        "value": "-0.204926",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SIGN_FLIP"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "signature FULL_PERIOD",
+      "input": {
+        "value": "0.064834",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FULL_PERIOD"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "signature WRONG_DATASET",
+      "input": {
+        "value": "0.203256",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_DATASET"
+      }
+    },
+    {
+      "task": "p2-hadcrut-trend",
+      "name": "far off",
+      "input": {
+        "value": "0.827926",
+        "method": {
+          "start": "1975",
+          "end": "2024",
+          "unit": "°C per decade"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    }
+  ]
+}

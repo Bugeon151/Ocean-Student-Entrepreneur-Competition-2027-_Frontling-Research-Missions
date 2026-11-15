@@ -1,0 +1,8 @@
+Mission content (content/missions/*/stages, hints, review) © 2026 Team PJ,
+licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Datasets keep their original licences, recorded per mission in licenses.json:
+- GISTEMP v4 / HadCRUT5 via datasets/global-temp — CC-BY-4.0
+- NOAA GML Mauna Loa CO2 via datasets/co2-ppm — ODC-PDDL-1.0
+Cited papers are linked, not redistributed.

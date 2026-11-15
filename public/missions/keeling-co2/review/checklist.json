@@ -1,0 +1,11 @@
+{
+  "items": [
+    {"id": "paper-exists", "check": "Cited paper resolves via DOI and is open access", "result": "pass", "evidence": "https://doi.org/10.3402/tellusa.v28i6.11322"},
+    {"id": "data-access", "check": "Data publicly accessible and pinned to a commit", "result": "pass"},
+    {"id": "license", "check": "Data licence permits redistribution", "result": "pass", "evidence": "ODC-PDDL-1.0"},
+    {"id": "reference", "check": "Reference values recomputed by independent implementation", "result": "pass"},
+    {"id": "published", "check": "Deviation from published 3.4% documented and bounded (< 0.2 percentage points)", "result": "pass"},
+    {"id": "hints", "check": "No approved hint reveals a reference value (automated scan)", "result": "pass"},
+    {"id": "domain", "check": "Domain expert review", "result": "pending", "note": "Required before DOMAIN_REVIEWED. Not claimed."}
+  ]
+}

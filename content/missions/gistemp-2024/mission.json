@@ -1,0 +1,25 @@
+{
+  "mission_id": "gistemp-2024",
+  "version": "1.0.0",
+  "title": "Reproduce NASA's 2024 Record: How Warm Was Earth?",
+  "subject": "Climate Science",
+  "difficulty": "Beginner",
+  "summary": "Use NASA GISTEMP v4 monthly data to reproduce the published 2024 global temperature anomaly (1.28 °C above 1951–1980) and the recent warming trend, then apply the same method to an independent dataset (HadCRUT5).",
+  "source_doi": "10.1029/2018JD029522",
+  "paper_url": "https://doi.org/10.1029/2018JD029522",
+  "dataset_source": "NASA GISS Surface Temperature Analysis v4 (GISTEMP) and Met Office HadCRUT5, via the datasets/global-temp mirror",
+  "dataset_version": "datasets/global-temp@b90e8a349acb508d382d40d1cfa393c723bd82ef (data through 2025-12 used)",
+  "license": "Data: CC-BY-4.0 (datasets/global-temp packaging). Mission text: CC-BY-4.0, Team PJ.",
+  "estimated_duration": "60–90 minutes",
+  "prerequisites": ["Averages (mean)", "Reading a line chart", "Spreadsheet or Python basics (helpful, not required)"],
+  "reproduction_scope": "Partial: the 2024 global annual mean anomaly and the 1975–2024 linear trend computed from the published monthly global means. The station homogenisation and spatial interpolation steps of GISTEMP are NOT reproduced.",
+  "reproduction_level": "R1",
+  "requirements": "Any modern browser. A spreadsheet (Google Sheets, Excel, LibreOffice) or Python for the Reproduce and Prove calculations.",
+  "review_status": "INTERNAL_REVIEWED",
+  "review_scope": ["Reference values recomputed by two independent implementations", "Published value cross-check (NASA: 1.28 °C for 2024)", "Hint answer-leak scan", "License check"],
+  "datasets": [
+    {"id": "reproduce", "file": "datasets/reproduce.csv", "title": "GISTEMP v4 global monthly anomaly, 1880–2025", "frequency": "monthly", "value_col": "Anomaly_C", "unit": "°C vs 1951–1980", "source": "NASA GISS GISTEMP v4"},
+    {"id": "investigate", "file": "datasets/investigate.csv", "title": "GISTEMP v4 global annual anomaly (mean of 12 months), 1880–2025", "frequency": "annual", "value_col": "Anomaly_C", "unit": "°C vs 1951–1980", "source": "Derived from reproduce.csv by the mission build script"},
+    {"id": "transfer", "file": "datasets/transfer.csv", "title": "HadCRUT5 global monthly anomaly, 1850–2025", "frequency": "monthly", "value_col": "Anomaly_C", "unit": "°C vs the dataset's own base period", "source": "Met Office Hadley Centre / CRU HadCRUT5"}
+  ]
+}

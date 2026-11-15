@@ -1,0 +1,21 @@
+{
+  "hints": [
+    {"id": "k-r1-gen-1", "task": "r1-pct-1959-1971", "branch": "generic", "level": 1, "text": "Check that you took the 1959 and 1971 rows from the annual file, not neighbouring years.", "status": "approved"},
+    {"id": "k-r1-gen-2", "task": "r1-pct-1959-1971", "branch": "generic", "level": 2, "text": "Percent change = (later − earlier) ÷ earlier × 100. The earlier year is the base.", "status": "approved"},
+    {"id": "k-r1-gen-3", "task": "r1-pct-1959-1971", "branch": "generic", "level": 3, "text": "Worked example with toy numbers: 250 → 260 ppm is (260 − 250) ÷ 250 × 100 = 4.00%. Use the same formula on the real 1959 and 1971 values.", "status": "approved"},
+    {"id": "k-r1-pub-1", "task": "r1-pct-1959-1971", "branch": "PUBLISHED_VALUE", "level": 1, "text": "You entered the paper's number. This task asks what today's NOAA data give. Compute it from reproduce.csv.", "status": "approved"},
+    {"id": "k-r1-pub-2", "task": "r1-pct-1959-1971", "branch": "PUBLISHED_VALUE", "level": 2, "text": "A reproduction can legitimately differ from the original. Record your own number, then explain the gap in Investigate.", "status": "approved"},
+    {"id": "k-r1-wb-1", "task": "r1-pct-1959-1971", "branch": "WRONG_BASE", "level": 1, "text": "Your value is slightly too small. Which year should be in the denominator?", "status": "approved"},
+    {"id": "k-r1-ra-1", "task": "r1-pct-1959-1971", "branch": "RATIO_NOT_PERCENT", "level": 1, "text": "You computed a ratio (later ÷ earlier). Convert it to a percent change.", "status": "approved"},
+    {"id": "k-r1-pd-1", "task": "r1-pct-1959-1971", "branch": "PPM_DIFFERENCE", "level": 1, "text": "That is the change in ppm. The question asks for a percentage of the 1959 value.", "status": "approved"},
+    {"id": "k-r1-sg-1", "task": "r1-pct-1959-1971", "branch": "SIGN_FLIP", "level": 1, "text": "Your change is negative. Did CO₂ rise or fall between 1959 and 1971?", "status": "approved"},
+    {"id": "k-r1-m-1", "task": "r1-pct-1959-1971", "branch": "METHOD_MISMATCH", "level": 1, "text": "Check the base year and unit you recorded against the question.", "status": "approved"},
+    {"id": "k-r2-gen-1", "task": "r2-growth-2015-2024", "branch": "generic", "level": 1, "text": "Make sure you used the 2014 and 2024 values: growth during 2015 starts from the 2014 level.", "status": "approved"},
+    {"id": "k-r2-gen-2", "task": "r2-growth-2015-2024", "branch": "generic", "level": 2, "text": "Mean growth = (value in last year − value in the year before the first year) ÷ number of yearly steps.", "status": "approved"},
+    {"id": "k-r2-gen-3", "task": "r2-growth-2015-2024", "branch": "generic", "level": 3, "text": "Toy example: 2000 = 370, 2005 = 380 → growth over 2001–2005 = (380 − 370) ÷ 5 = 2.00 ppm/yr.", "status": "approved"},
+    {"id": "k-r2-fp-1", "task": "r2-growth-2015-2024", "branch": "FENCEPOST", "level": 1, "text": "Classic fencepost error: count the yearly steps, not the endpoints. Which value is the starting level for growth during 2015?", "status": "approved"},
+    {"id": "k-r2-ws-1", "task": "r2-growth-2015-2024", "branch": "WRONG_START", "level": 1, "text": "Your numerator starts from 2015. Growth during 2015 is measured from the 2014 level.", "status": "approved"},
+    {"id": "k-r2-tn-1", "task": "r2-growth-2015-2024", "branch": "TOTAL_NOT_RATE", "level": 1, "text": "That is the total increase over the period. Divide by the number of years to get a rate.", "status": "approved"},
+    {"id": "k-r2-m-1", "task": "r2-growth-2015-2024", "branch": "METHOD_MISMATCH", "level": 1, "text": "Check the first and last growth years and the unit (ppm per year).", "status": "approved"}
+  ]
+}

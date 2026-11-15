@@ -1,0 +1,26 @@
+{
+  "name": "frontling-research-missions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Frontling Research Missions — The Research Lab Without the Lab",
+  "scripts": {
+    "packs": "tsx scripts/build-packs.ts",
+    "check": "tsx scripts/check-packs.ts",
+    "dev": "vite",
+    "build": "npm run packs && npm run check && tsc --noEmit && vite build",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "bench": "tsx scripts/bench.ts",
+    "verify": "npm run build && npm test && npm run e2e && npm run bench"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.6",
+    "vitest": "^3.2.7"
+  }
+}

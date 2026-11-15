@@ -1,0 +1,30 @@
+name: CI & Pages
+on:
+  push: { branches: [main] }
+  pull_request:
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build          # build packs -> release gate (check) -> typecheck -> vite build
+      - run: npm test               # Benchmarks A–D
+      - run: npx playwright install --with-deps chromium
+      - run: CHROME_PATH=$(node -e "console.log(require('@playwright/test').chromium.executablePath())") npm run e2e
+      - run: CHROME_PATH=$(node -e "console.log(require('@playwright/test').chromium.executablePath())") npm run bench
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: '${{ steps.d.outputs.page_url }}' }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4

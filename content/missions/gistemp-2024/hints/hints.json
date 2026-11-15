@@ -1,0 +1,25 @@
+{
+  "hints": [
+    {"id": "g-r1-gen-1", "task": "r1-annual-2024", "branch": "generic", "level": 1, "text": "Check which rows you selected. Are all of them from 2024, and are there exactly 12?", "status": "approved"},
+    {"id": "g-r1-gen-2", "task": "r1-annual-2024", "branch": "generic", "level": 2, "text": "An annual mean is the arithmetic mean: add the 12 monthly anomalies and divide by 12. Copying values by hand often drops a minus sign or a digit.", "status": "approved"},
+    {"id": "g-r1-gen-3", "task": "r1-annual-2024", "branch": "generic", "level": 3, "text": "Worked example with a different year: for 1980, filter Year = 1980, then =AVERAGE() over the 12 Anomaly_C cells. Apply the identical steps to 2024.", "status": "approved"},
+    {"id": "g-r1-f-1", "task": "r1-annual-2024", "branch": "FAHRENHEIT", "level": 1, "text": "Your result looks like it is in a different temperature unit. Which unit does the Anomaly_C column use?", "status": "approved"},
+    {"id": "g-r1-f-2", "task": "r1-annual-2024", "branch": "FAHRENHEIT", "level": 2, "text": "No unit conversion is needed: the data are already in °C. (A temperature difference converts with ×1.8 only, never +32.)", "status": "approved"},
+    {"id": "g-r1-fa-1", "task": "r1-annual-2024", "branch": "FAHRENHEIT_ABSOLUTE", "level": 1, "text": "Your number looks like an absolute Fahrenheit temperature. Anomalies are differences, and the data are already in °C.", "status": "approved"},
+    {"id": "g-r1-s-1", "task": "r1-annual-2024", "branch": "SUM_NOT_MEAN", "level": 1, "text": "Your value is about 12 times too large. Did you add the months without dividing?", "status": "approved"},
+    {"id": "g-r1-d-1", "task": "r1-annual-2024", "branch": "DECIMAL_SHIFT", "level": 1, "text": "The digits look right but the decimal point is in the wrong place. Re-check how you typed the result.", "status": "approved"},
+    {"id": "g-r1-y-1", "task": "r1-annual-2024", "branch": "WRONG_YEAR", "level": 1, "text": "Your value matches a neighbouring year. Check your Year filter.", "status": "approved"},
+    {"id": "g-r1-sg-1", "task": "r1-annual-2024", "branch": "SIGN_FLIP", "level": 1, "text": "Your result has the wrong sign. Was 2024 warmer or cooler than the 1951–1980 average?", "status": "approved"},
+    {"id": "g-r1-m-1", "task": "r1-annual-2024", "branch": "METHOD_MISMATCH", "level": 1, "text": "Re-read the mission question: which unit and which 12 months define the 2024 calendar-year mean?", "status": "approved"},
+    {"id": "g-r1-m-2", "task": "r1-annual-2024", "branch": "METHOD_MISMATCH", "level": 2, "text": "The protocol uses January–December of 2024 in °C. If you used a different window, recompute with the calendar year.", "status": "approved"},
+    {"id": "g-r2-gen-1", "task": "r2-trend-1975-2024", "branch": "generic", "level": 1, "text": "First confirm you have 50 annual means (1975 through 2024 inclusive) before fitting the line.", "status": "approved"},
+    {"id": "g-r2-gen-2", "task": "r2-trend-1975-2024", "branch": "generic", "level": 2, "text": "Ordinary least squares slope = Σ(x−x̄)(y−ȳ) / Σ(x−x̄)², with x = year and y = annual mean. Spreadsheets: =SLOPE(y, x). Python: numpy.polyfit(x, y, 1)[0].", "status": "approved"},
+    {"id": "g-r2-gen-3", "task": "r2-trend-1975-2024", "branch": "generic", "level": 3, "text": "Worked example with toy data: years 2000, 2001, 2002 with values 0.10, 0.14, 0.15 give a slope of 0.025 °C/year = 0.25 °C/decade. Use the same procedure on the 50 real annual means.", "status": "approved"},
+    {"id": "g-r2-py-1", "task": "r2-trend-1975-2024", "branch": "PER_YEAR", "level": 1, "text": "Your value is 10 times smaller than expected. Which time unit does the question ask for?", "status": "approved"},
+    {"id": "g-r2-pm-1", "task": "r2-trend-1975-2024", "branch": "PER_MONTH", "level": 1, "text": "Your slope seems to be per month. Fit the line to annual means against the year, then convert to per decade.", "status": "approved"},
+    {"id": "g-r2-sg-1", "task": "r2-trend-1975-2024", "branch": "SIGN_FLIP", "level": 1, "text": "Your trend has the wrong sign. Did you swap x and y order, or sort years descending with a reversed x-axis?", "status": "approved"},
+    {"id": "g-r2-fp-1", "task": "r2-trend-1975-2024", "branch": "FULL_PERIOD", "level": 1, "text": "Your trend matches a much longer period. The protocol starts in 1975.", "status": "approved"},
+    {"id": "g-r2-m-1", "task": "r2-trend-1975-2024", "branch": "METHOD_MISMATCH", "level": 1, "text": "Check the recorded first year, last year and unit against the mission question.", "status": "approved"},
+    {"id": "g-r2-draft-x", "task": "r2-trend-1975-2024", "branch": "generic", "level": 1, "text": "DRAFT — not reviewed. Must never be shown to students.", "status": "draft"}
+  ]
+}

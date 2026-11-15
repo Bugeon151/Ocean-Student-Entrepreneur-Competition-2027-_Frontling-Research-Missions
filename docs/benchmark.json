@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-11-15T12:58:19.253Z",
+  "machine": {
+    "cpus": 2,
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "mem_gb": 7.8,
+    "node": "v22.23.4"
+  },
+  "tests": {
+    "benchmark-a.test.ts": {
+      "passed": 11,
+      "total": 11
+    },
+    "benchmark-b.test.ts": {
+      "passed": 123,
+      "total": 123
+    },
+    "benchmark-c.test.ts": {
+      "passed": 6,
+      "total": 6
+    },
+    "benchmark-d.test.ts": {
+      "passed": 3,
+      "total": 3
+    },
+    "core.test.ts": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "sizes_bytes": {
+    "app": {
+      "raw": 42506,
+      "gz": 16074
+    },
+    "packs": {
+      "gistemp-2024": {
+        "raw": 79341,
+        "gz": 25689
+      },
+      "keeling-co2": {
+        "raw": 34286,
+        "gz": 12813
+      }
+    },
+    "per_student_transfer_gzip": {
+      "gistemp-2024": 41763,
+      "keeling-co2": 28887
+    }
+  },
+  "validator_node_ms": {
+    "p50": 0.00133,
+    "p99": 0.00425,
+    "max": 5.6522
+  },
+  "browser_ms": {
+    "normal_cpu": {
+      "app_initial_load_ms": 145,
+      "gistemp_data_ready_ms": 114,
+      "stage_switch_ms": 74,
+      "save_ms": 0.032,
+      "js_heap_mb": 3.078
+    },
+    "cpu_4x_slowdown": {
+      "app_initial_load_ms": 374,
+      "gistemp_data_ready_ms": 290,
+      "stage_switch_ms": 162,
+      "save_ms": 0.032,
+      "js_heap_mb": 3.06
+    }
+  },
+  "distribution": {
+    "llm_calls_per_student": 0,
+    "github_pages_students_per_month_within_soft_limit": 2394463,
+    "cloudflare_pages_static_bandwidth": "unlimited on free plan (pages.cloudflare.com)"
+  }
+}

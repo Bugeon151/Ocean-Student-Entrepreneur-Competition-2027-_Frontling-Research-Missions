@@ -1,0 +1,25 @@
+{
+  "mission_id": "keeling-co2",
+  "version": "1.0.0",
+  "title": "The Keeling Curve: Re-check a 1976 Finding",
+  "subject": "Climate Science",
+  "difficulty": "Beginner",
+  "summary": "Keeling et al. (1976) reported that annual average CO₂ at Mauna Loa rose 3.4% between 1959 and 1971. Recompute that rise from today's NOAA record, quantify the recent growth rate, and apply the method to raw monthly data.",
+  "source_doi": "10.3402/tellusa.v28i6.11322",
+  "paper_url": "https://doi.org/10.3402/tellusa.v28i6.11322",
+  "dataset_source": "NOAA Global Monitoring Laboratory, Mauna Loa CO₂ annual and monthly means, via the datasets/co2-ppm mirror",
+  "dataset_version": "datasets/co2-ppm@52f2be52ee6145eaad67367959af9b1b0a0bd83e (annual 1959–2025, monthly 1958-03–2026-09)",
+  "license": "Data: ODC-PDDL-1.0 (public domain). Paper: CC BY (open access). Mission text: CC-BY-4.0, Team PJ.",
+  "estimated_duration": "45–75 minutes",
+  "prerequisites": ["Percent change", "Averages (mean)", "Spreadsheet or Python basics (helpful, not required)"],
+  "reproduction_scope": "Partial: the 1959→1971 percentage rise of the annual mean and recent growth rates, computed from NOAA's current record. The 1976 paper's own calibration and data processing are NOT reproduced, so a small, explainable difference from 3.4% is expected.",
+  "reproduction_level": "R1",
+  "requirements": "Any modern browser. A spreadsheet (Google Sheets, Excel, LibreOffice) or Python.",
+  "review_status": "INTERNAL_REVIEWED",
+  "review_scope": ["Reference values recomputed by two independent implementations", "Published value cross-check with documented deviation", "Hint answer-leak scan", "License check"],
+  "datasets": [
+    {"id": "reproduce", "file": "datasets/reproduce.csv", "title": "Mauna Loa CO₂ annual mean, 1959–2025", "frequency": "annual", "value_col": "CO2_ppm", "unit": "ppm", "source": "NOAA GML"},
+    {"id": "investigate", "file": "datasets/investigate.csv", "title": "Mauna Loa CO₂ annual mean, 1959–2025", "frequency": "annual", "value_col": "CO2_ppm", "unit": "ppm", "source": "NOAA GML"},
+    {"id": "transfer", "file": "datasets/transfer.csv", "title": "Mauna Loa CO₂ monthly mean, 1958-03 to 2026-09", "frequency": "monthly", "value_col": "CO2_ppm", "unit": "ppm", "source": "NOAA GML"}
+  ]
+}

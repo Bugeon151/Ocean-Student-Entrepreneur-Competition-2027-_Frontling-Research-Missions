@@ -1,0 +1,51 @@
+{
+  "validation_version": "1.0.0",
+  "rounding": "Compare unrounded student value to unrounded reference; VALID if |x - ref| <= tolerance. Values must have >= min_decimals decimals.",
+  "tasks": [
+    {"id": "r1-annual-2024", "stage": "reproduce", "label": "2024 global annual mean anomaly", "prompt": "What was the 2024 annual mean anomaly in °C (relative to 1951–1980)?", "unit": "°C", "dataset": "reproduce",
+     "compute": {"op": "annual_mean", "year": 2024}, "tolerance": 0.006, "min_decimals": 2,
+     "method": [
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["°C", "°F"], "expected": "°C"},
+       {"key": "months", "label": "Months averaged", "type": "select", "options": ["January–December 2024 (12 months)", "December 2023–November 2024", "Fewer than 12 months"], "expected": "January–December 2024 (12 months)"}
+     ],
+     "signatures": [
+       {"code": "FAHRENHEIT", "scale": 1.8}, {"code": "FAHRENHEIT_ABSOLUTE", "scale": 1.8, "offset": 32},
+       {"code": "SUM_NOT_MEAN", "scale": 12}, {"code": "DECIMAL_SHIFT", "scale": 10},
+       {"code": "WRONG_YEAR", "compute": {"op": "annual_mean", "year": 2023}}, {"code": "SIGN_FLIP", "scale": -1}
+     ],
+     "published": {"value": 1.28, "text": "NASA: 2024 was 1.28 °C above the 1951–1980 baseline", "url": "https://science.nasa.gov/earth/explore/earth-indicators/global-temperature/"}},
+    {"id": "r2-trend-1975-2024", "stage": "reproduce", "label": "Warming trend 1975–2024", "prompt": "What is the OLS linear trend of annual mean anomalies from 1975 to 2024, in °C per decade?", "unit": "°C/decade", "dataset": "reproduce",
+     "compute": {"op": "trend_per_decade", "start": 1975, "end": 2024}, "tolerance": 0.002, "min_decimals": 3,
+     "method": [
+       {"key": "start", "label": "First year used", "type": "number", "expected": "1975"},
+       {"key": "end", "label": "Last year used", "type": "number", "expected": "2024"},
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["°C per decade", "°C per year"], "expected": "°C per decade"}
+     ],
+     "signatures": [
+       {"code": "PER_YEAR", "scale": 0.1}, {"code": "SIGN_FLIP", "scale": -1}, {"code": "PER_MONTH", "scale": 0.008333333333333333},
+       {"code": "FULL_PERIOD", "compute": {"op": "trend_per_decade", "start": 1880, "end": 2024}}
+     ]},
+    {"id": "p1-hadcrut-2024", "stage": "prove", "label": "HadCRUT5 2024 annual mean anomaly", "prompt": "Using transfer.csv, what was the 2024 annual mean anomaly in °C (relative to the dataset's own baseline)?", "unit": "°C", "dataset": "transfer",
+     "compute": {"op": "annual_mean", "year": 2024}, "tolerance": 0.006, "min_decimals": 2,
+     "method": [
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["°C", "°F"], "expected": "°C"},
+       {"key": "months", "label": "Months averaged", "type": "select", "options": ["January–December 2024 (12 months)", "December 2023–November 2024", "Fewer than 12 months"], "expected": "January–December 2024 (12 months)"}
+     ],
+     "signatures": [
+       {"code": "FAHRENHEIT", "scale": 1.8}, {"code": "SUM_NOT_MEAN", "scale": 12}, {"code": "WRONG_YEAR", "compute": {"op": "annual_mean", "year": 2023}},
+       {"code": "WRONG_DATASET", "from_dataset": "reproduce", "compute": {"op": "annual_mean", "year": 2024}}
+     ]},
+    {"id": "p2-hadcrut-trend", "stage": "prove", "label": "HadCRUT5 warming trend 1975–2024", "prompt": "Using transfer.csv, what is the OLS trend of annual means from 1975 to 2024, in °C per decade?", "unit": "°C/decade", "dataset": "transfer",
+     "compute": {"op": "trend_per_decade", "start": 1975, "end": 2024}, "tolerance": 0.001, "min_decimals": 3,
+     "method": [
+       {"key": "start", "label": "First year used", "type": "number", "expected": "1975"},
+       {"key": "end", "label": "Last year used", "type": "number", "expected": "2024"},
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["°C per decade", "°C per year"], "expected": "°C per decade"}
+     ],
+     "signatures": [
+       {"code": "PER_YEAR", "scale": 0.1}, {"code": "SIGN_FLIP", "scale": -1},
+       {"code": "FULL_PERIOD", "compute": {"op": "trend_per_decade", "start": 1850, "end": 2024}},
+       {"code": "WRONG_DATASET", "from_dataset": "reproduce", "compute": {"op": "trend_per_decade", "start": 1975, "end": 2024}}
+     ]}
+  ]
+}

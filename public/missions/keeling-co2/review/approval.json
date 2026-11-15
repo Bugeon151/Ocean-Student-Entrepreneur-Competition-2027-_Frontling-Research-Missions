@@ -1,0 +1,6 @@
+{
+  "status": "INTERNAL_REVIEWED",
+  "reviewers": [{"name": "Team PJ internal review (AI-assisted, automated benchmarks)", "role": "internal", "date": "2026-11-15"}],
+  "domain_review": null,
+  "note": "INTERNAL_REVIEWED means the automated benchmarks A–D pass and the team checked the content. It is NOT a domain-expert review."
+}

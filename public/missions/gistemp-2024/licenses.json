@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"asset": "datasets/*.csv", "license": "CC-BY-4.0", "redistribution": true, "attribution": "NASA GISS GISTEMP Team; Met Office Hadley Centre & Climatic Research Unit (HadCRUT5); packaged by datasets/global-temp", "evidence_url": "https://github.com/datasets/global-temp/blob/main/datapackage.json"},
+    {"asset": "paper (cited, not redistributed)", "license": "link only", "redistribution": false, "attribution": "Lenssen et al. 2019, JGR Atmospheres", "evidence_url": "https://doi.org/10.1029/2018JD029522"},
+    {"asset": "stages/*, hints/*", "license": "CC-BY-4.0", "redistribution": true, "attribution": "Team PJ", "evidence_url": "LICENSE-CONTENT"}
+  ]
+}

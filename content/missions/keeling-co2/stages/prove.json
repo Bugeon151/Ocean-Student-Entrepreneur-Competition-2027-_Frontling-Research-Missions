@@ -1,0 +1,8 @@
+{
+  "intro": [
+    "Independent assessment. transfer.csv contains monthly means, not annual means. Build annual means yourself (12 months per calendar year) and apply the same methods.",
+    "No hints are available. Your first submission per task is recorded as your independent result."
+  ],
+  "tasks": ["p1-annual-2025-from-monthly", "p2-pct-1990-2020"],
+  "reflection": "Your 2025 annual mean comes from 12 monthly values. Why is it more useful than the single highest monthly value of 2025?"
+}

@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"asset": "datasets/*.csv", "license": "ODC-PDDL-1.0", "redistribution": true, "attribution": "NOAA Global Monitoring Laboratory; packaged by datasets/co2-ppm", "evidence_url": "https://github.com/datasets/co2-ppm/blob/main/datapackage.json"},
+    {"asset": "paper (cited, not redistributed)", "license": "CC-BY", "redistribution": false, "attribution": "Keeling et al. 1976, Tellus", "evidence_url": "https://doi.org/10.3402/tellusa.v28i6.11322"},
+    {"asset": "stages/*, hints/*", "license": "CC-BY-4.0", "redistribution": true, "attribution": "Team PJ", "evidence_url": "LICENSE-CONTENT"}
+  ]
+}

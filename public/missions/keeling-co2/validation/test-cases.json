@@ -1,0 +1,788 @@
+{
+  "cases": [
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "exact reference",
+      "input": {
+        "value": "3.272359",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "3.27",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "3.291359",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "missing method field",
+      "input": {
+        "value": "3.272359",
+        "method": {
+          "base": "",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "decimal comma",
+      "input": {
+        "value": "3,272359",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "unit text in value",
+      "input": {
+        "value": "3.272359 %",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "too few decimals",
+      "input": {
+        "value": "3.3",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "3.272359",
+        "method": {
+          "base": "1960",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "signature PUBLISHED_VALUE",
+      "input": {
+        "value": "3.400000",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PUBLISHED_VALUE"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "signature WRONG_BASE",
+      "input": {
+        "value": "3.168669",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_BASE"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "signature RATIO_NOT_PERCENT",
+      "input": {
+        "value": "1.032724",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "RATIO_NOT_PERCENT"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "signature PPM_DIFFERENCE",
+      "input": {
+        "value": "10.340000",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PPM_DIFFERENCE"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "signature SIGN_FLIP",
+      "input": {
+        "value": "-3.272359",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SIGN_FLIP"
+      }
+    },
+    {
+      "task": "r1-pct-1959-1971",
+      "name": "far off",
+      "input": {
+        "value": "4.606132",
+        "method": {
+          "base": "1959",
+          "unit": "% of the 1959 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "exact reference",
+      "input": {
+        "value": "2.580000",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "2.58",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "2.589500",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "missing method field",
+      "input": {
+        "value": "2.580000",
+        "method": {
+          "start": "",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "decimal comma",
+      "input": {
+        "value": "2,580000",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "unit text in value",
+      "input": {
+        "value": "2.580000 ppm/yr",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "too few decimals",
+      "input": {
+        "value": "2.6",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "2.580000",
+        "method": {
+          "start": "2016",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "signature FENCEPOST",
+      "input": {
+        "value": "2.622222",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "FENCEPOST"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "signature WRONG_START",
+      "input": {
+        "value": "2.360000",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_START"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "signature TOTAL_NOT_RATE",
+      "input": {
+        "value": "25.800000",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "TOTAL_NOT_RATE"
+      }
+    },
+    {
+      "task": "r2-growth-2015-2024",
+      "name": "far off",
+      "input": {
+        "value": "3.657600",
+        "method": {
+          "start": "2015",
+          "end": "2024",
+          "unit": "ppm per year"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "exact reference",
+      "input": {
+        "value": "427.349167",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "427.35",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "427.368167",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "missing method field",
+      "input": {
+        "value": "427.349167",
+        "method": {
+          "months": ""
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "decimal comma",
+      "input": {
+        "value": "427,349167",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "unit text in value",
+      "input": {
+        "value": "427.349167 ppm",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "too few decimals",
+      "input": {
+        "value": "427.3",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "427.349167",
+        "method": {
+          "months": "Fewer than 12 months"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "signature WRONG_YEAR",
+      "input": {
+        "value": "424.604167",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_YEAR"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "signature SUM_NOT_MEAN",
+      "input": {
+        "value": "5128.190004",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "SUM_NOT_MEAN"
+      }
+    },
+    {
+      "task": "p1-annual-2025-from-monthly",
+      "name": "far off",
+      "input": {
+        "value": "585.591359",
+        "method": {
+          "months": "January–December 2025 (12 months)"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "exact reference",
+      "input": {
+        "value": "16.860040",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "rounded to min decimals",
+      "input": {
+        "value": "16.86",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "inside tolerance edge",
+      "input": {
+        "value": "16.879040",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "VALID"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "empty value",
+      "input": {
+        "value": "",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_value"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "missing method field",
+      "input": {
+        "value": "16.860040",
+        "method": {
+          "base": "",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "INCOMPLETE",
+        "diagnosis": "missing_method"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "decimal comma",
+      "input": {
+        "value": "16,860040",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "decimal_comma"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "unit text in value",
+      "input": {
+        "value": "16.860040 %",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "not_a_number"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "too few decimals",
+      "input": {
+        "value": "16.9",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "FORMAT_ERROR",
+        "diagnosis": "precision"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "wrong analysis condition",
+      "input": {
+        "value": "16.860040",
+        "method": {
+          "base": "1991",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "METHOD_MISMATCH",
+        "diagnosis": "method"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "signature WRONG_BASE",
+      "input": {
+        "value": "14.427549",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "WRONG_BASE"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "signature PPM_DIFFERENCE",
+      "input": {
+        "value": "59.760833",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "PPM_DIFFERENCE"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "signature RATIO_NOT_PERCENT",
+      "input": {
+        "value": "1.168600",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "RATIO_NOT_PERCENT"
+      }
+    },
+    {
+      "task": "p2-pct-1990-2020",
+      "name": "far off",
+      "input": {
+        "value": "23.221255",
+        "method": {
+          "base": "1990",
+          "unit": "% of the 1990 value"
+        }
+      },
+      "expect": {
+        "code": "OUT_OF_RANGE",
+        "diagnosis": "generic"
+      }
+    }
+  ]
+}

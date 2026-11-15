@@ -1,0 +1,8 @@
+{
+  "intro": [
+    "Independent assessment. transfer.csv is HadCRUT5, a different global temperature record built by a different team with a different baseline. Apply exactly the same methods you used in Reproduce.",
+    "No hints are available in this stage. Your first submission for each task is recorded as your independent result; later attempts are recorded separately."
+  ],
+  "tasks": ["p1-hadcrut-2024", "p2-hadcrut-trend"],
+  "reflection": "Compare your HadCRUT5 results with your GISTEMP results. Which of the two numbers agrees between datasets, and why?"
+}

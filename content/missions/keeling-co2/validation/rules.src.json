@@ -1,0 +1,42 @@
+{
+  "validation_version": "1.0.0",
+  "rounding": "Compare unrounded student value to unrounded reference; VALID if |x - ref| <= tolerance. Values must have >= min_decimals decimals.",
+  "tasks": [
+    {"id": "r1-pct-1959-1971", "stage": "reproduce", "label": "CO₂ rise 1959→1971 (%)", "prompt": "By what percentage did the annual mean CO₂ rise from 1959 to 1971?", "unit": "%", "dataset": "reproduce",
+     "compute": {"op": "pct_change", "from": 1959, "to": 1971}, "tolerance": 0.02, "min_decimals": 2,
+     "method": [
+       {"key": "base", "label": "Base (denominator) year", "type": "number", "expected": "1959"},
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["% of the 1959 value", "ppm"], "expected": "% of the 1959 value"}
+     ],
+     "signatures": [
+       {"code": "PUBLISHED_VALUE", "value": 3.4}, {"code": "WRONG_BASE", "compute": {"op": "pct_change_base_to", "from": 1959, "to": 1971}},
+       {"code": "RATIO_NOT_PERCENT", "transform": "ratio"}, {"code": "PPM_DIFFERENCE", "transform": "diff"}, {"code": "SIGN_FLIP", "scale": -1}
+     ],
+     "published": {"value": 3.4, "text": "Keeling et al. (1976): annual average CO₂ rose 3.4% between 1959 and 1971", "url": "https://doi.org/10.3402/tellusa.v28i6.11322"}},
+    {"id": "r2-growth-2015-2024", "stage": "reproduce", "label": "Mean CO₂ growth rate 2015–2024", "prompt": "What was the mean growth rate of annual mean CO₂ over 2015–2024, in ppm per year?", "unit": "ppm/yr", "dataset": "reproduce",
+     "compute": {"op": "mean_growth", "start": 2015, "end": 2024}, "tolerance": 0.01, "min_decimals": 2,
+     "method": [
+       {"key": "start", "label": "First growth year", "type": "number", "expected": "2015"},
+       {"key": "end", "label": "Last growth year", "type": "number", "expected": "2024"},
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["ppm per year", "% per year", "ppm per decade"], "expected": "ppm per year"}
+     ],
+     "signatures": [
+       {"code": "FENCEPOST", "compute": {"op": "span_over", "from": 2015, "to": 2024, "div": 9}},
+       {"code": "WRONG_START", "compute": {"op": "span_over", "from": 2015, "to": 2024, "div": 10}},
+       {"code": "TOTAL_NOT_RATE", "scale": 10}
+     ]},
+    {"id": "p1-annual-2025-from-monthly", "stage": "prove", "label": "2025 annual mean from monthly data", "prompt": "Using transfer.csv, what was the 2025 annual mean CO₂ in ppm?", "unit": "ppm", "dataset": "transfer",
+     "compute": {"op": "annual_mean", "year": 2025}, "tolerance": 0.02, "min_decimals": 2,
+     "method": [
+       {"key": "months", "label": "Months averaged", "type": "select", "options": ["January–December 2025 (12 months)", "Fewer than 12 months"], "expected": "January–December 2025 (12 months)"}
+     ],
+     "signatures": [{"code": "WRONG_YEAR", "compute": {"op": "annual_mean", "year": 2024}}, {"code": "SUM_NOT_MEAN", "scale": 12}]},
+    {"id": "p2-pct-1990-2020", "stage": "prove", "label": "CO₂ rise 1990→2020 (%) from monthly data", "prompt": "Using annual means you build from transfer.csv, by what percentage did CO₂ rise from 1990 to 2020?", "unit": "%", "dataset": "transfer",
+     "compute": {"op": "pct_change", "from": 1990, "to": 2020}, "tolerance": 0.02, "min_decimals": 2,
+     "method": [
+       {"key": "base", "label": "Base (denominator) year", "type": "number", "expected": "1990"},
+       {"key": "unit", "label": "Unit of your result", "type": "select", "options": ["% of the 1990 value", "ppm"], "expected": "% of the 1990 value"}
+     ],
+     "signatures": [{"code": "WRONG_BASE", "compute": {"op": "pct_change_base_to", "from": 1990, "to": 2020}}, {"code": "PPM_DIFFERENCE", "transform": "diff"}, {"code": "RATIO_NOT_PERCENT", "transform": "ratio"}]}
+  ]
+}
