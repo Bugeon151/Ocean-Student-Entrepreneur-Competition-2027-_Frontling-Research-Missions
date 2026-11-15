@@ -5,7 +5,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | **2.1 — Competition Edition (구현 반영판)** |
+| 문서 버전 | **2.2 — Competition Edition (구현·경쟁분석 반영판)** |
 | 작성일 | 2026년 11월 15일 |
 | 프로젝트 | Frontling Research Missions |
 | 목표 대회 | Blue Ocean Student Entrepreneur Competition 2027 |
@@ -19,7 +19,11 @@
 
 ---
 
-## 0. v2.0 → v2.1 변경 요약
+## 0. 변경 요약
+
+**v2.1 → v2.2 (2026-11-15):** FR-011 미션 저작 도구 구현, 경쟁 조사와 Strategy Canvas 완성(`public/strategy.json` → 앱 `#/why` 페이지·`docs/strategy-canvas.svg`), 실기기 측정 페이지(`#/device-check`) 추가, 5분 피치 대본 초안(`docs/PITCH.md`).
+
+**v2.0 → v2.1:**
 
 | 영역 | v2.0 | v2.1 | 변경 이유 |
 |---|---|---|---|
@@ -354,7 +358,7 @@ Passport는 암호학적으로 보장된 능력 인증서가 아니다. 학생 �
 | FR-008 | 별도 데이터 평가(Prove) | P0 | ✅ | E2E |
 | FR-009 | Evidence JSON | P0 | ✅ | E2E(해시 재계산) |
 | FR-010 | HTML/PDF 보고서 | P1 | ✅ | E2E, XSS 단위 테스트 |
-| FR-011 | AI 연구 미션 저작 | 기존 | ⏳ | 저작 원본 형식은 확정, 자동 초안 도구는 미구현 |
+| FR-011 | AI 연구 미션 저작 | P1 | ✅ | `npm run author`: OpenAlex 탐색 → 적격성 검사 → 스캐폴드(DRAFT) → AI 초안(항상 draft 강제) → 이름 있는 검토자 승인. 단위 테스트 5개 |
 | FR-012 | 인간 검토 워크플로 | P0 | ✅ | approval·checklist + 배포 게이트 |
 | FR-013 | 데이터·라이선스 검사 | P0 | ✅ | 배포 게이트 |
 | FR-014 | 미션 버전 관리 | P1 | ✅ | content_hash, 변경 시 화면 경고 |
@@ -378,6 +382,8 @@ Passport는 암호학적으로 보장된 능력 인증서가 아니다. 학생 �
 | 진행 저장 | 1초 이내 | 충족 |
 | 단계 전환 | 1초 이내 | 충족 |
 | 오프라인 재실행 | 자료를 미리 받은 미션 | 데이터 CSV 다운로드 제공. 서비스워커 오프라인 캐시는 대회 이후 |
+
+실제 저사양 기기 측정: 앱의 **Device check** 페이지(`#/device-check`)를 해당 노트북에서 실행해 JSON을 내보내고 `docs/`에 추가한다. 측정값은 서버로 전송되지 않는다.
 
 ## 12.2 개인정보
 
@@ -465,9 +471,10 @@ STATIC HOSTING ──► STUDENT BROWSER
 | A. 과학적 정확성 | 빌드와 **다른 구현**(Kahan 합, 정규방정식 OLS)이 원본 미러 파일에서 8개 기준값을 재계산(오차 < 10⁻⁶). NASA 1.28 °C 반올림 일치, Keeling 3.4% 대비 편차 < 0.2%p 기록, NOAA 연평균과 월평균 재구성 값 교차 검증 | 11/11 통과 |
 | B. 오류 탐지 | 소수점, 단위, 누락, 반대 방향, 기간, 기준값, 순서, 형식 8개 범주를 모두 포함한 자동 생성 케이스 + 경계값 | 123/123 통과 |
 | C. 힌트 무결성 | 배포 게이트, 로더 차단, 분기, 게이트 조건, 진단 코드별 힌트 존재 | 6/6 통과, **미승인 힌트 노출 0건** |
+| 저작 도구 | 탐색 매핑, 적격성 8개 제외 조건, 스캐폴드, AI 출력 draft 강제, 승인 | 5/5 통과 |
 | D. 재현성 | 빌드 결정성(content_hash 불변), 배포 데이터로 기준값 재실행, Passport 시도 재검증·위변조 감지 | 3/3 통과 |
 | E. 성능·비용 | 크기, 로딩, 검증 지연, 저장, 메모리, 전송량, 호스팅 한도 | 목표 5/5 충족 |
-| E2E | 4단계 전체 흐름, 잠금, 모바일 탭, 키보드, 오류 복구, Keeling 진단 | 6/6 통과 |
+| E2E | 4단계 전체 흐름, 잠금, 모바일 탭, 키보드, 오류 복구, Keeling 진단, Why 페이지, Device check | 8/8 통과 |
 
 ## 15.2 수요 인터뷰 (신규, 사용자 확보 아님)
 
@@ -538,7 +545,7 @@ STATIC HOSTING ──► STUDENT BROWSER
 |---|---|---|
 | 검토된 미션 수 | 2개 (v2.0의 3개에서 조정) | 2개 INTERNAL_REVIEWED |
 | 4단계 작동 미션 | 최소 1개 | 2개 |
-| 기준 테스트 통과율 | 100% | 100% (151/151 단위·벤치마크, 6/6 E2E) |
+| 기준 테스트 통과율 | 100% | 100% (156/156 단위·벤치마크, 8/8 E2E) |
 | 미승인 힌트 노출 | 0건 | 0건 |
 | 연구 기록 완전성 | 필수 항목 100% | 100% (E2E 검증) |
 | 재현성 | 필수 사례 전부 통과 | 통과 |
@@ -559,9 +566,9 @@ STATIC HOSTING ──► STUDENT BROWSER
 | 1 | 11.15–11.30 | GISTEMP 미션, 검증 엔진, 오류 분류, 분기 힌트, 자동 테스트 | ✅ 11.15 완료 |
 | 2 | 12.1–12.15 | Investigate, Prove, Evidence JSON, 로컬 저장 | ✅ 11.15 완료 |
 | 3 | 12.16–12.31 | RMP 형식 확정, Keeling 미션, 검토 상태, 라이선스 검사 | ✅ 11.15 완료 |
-| 4 | 1.1–1.15 | 정확성·오류·재현성·성능 테스트, 벤치마크 문서 | ✅ 자동화 완료 / ⏳ 실제 저사양 기기 1대 이상 실측 |
-| 5 | 1.16–1.31 | **수요 인터뷰 15명+**, 제작비 실측, 경쟁 서비스 조사, ERRC·Strategy Canvas, 비고객 분석 | ⏳ |
-| 6 | 2.1–2.10 | **공식 피치 템플릿 순서로** 5분 영어 피치 작성, 시연 녹화, 편집, 과장 표현 점검 | ⏳ |
+| 4 | 1.1–1.15 | 정확성·오류·재현성·성능 테스트, 벤치마크 문서 | ✅ 자동화 완료 + 실기기 측정 도구 / ⏳ 실제 저사양 기기 1대 측정값 기록 |
+| 5 | 1.16–1.31 | **수요 인터뷰 15명+**, 제작비 실측, 경쟁 서비스 조사, ERRC·Strategy Canvas, 비고객 분석 | 🔶 경쟁 조사·Canvas·ERRC·비고객 완료 / 인터뷰·제작비 미완 |
+| 6 | 2.1–2.10 | **공식 피치 템플릿 순서로** 5분 영어 피치 작성, 시연 녹화, 편집, 과장 표현 점검 | 🔶 대본 초안·주장 점검표·촬영 목록 완료(`docs/PITCH.md`) / 템플릿 대조·녹화 미완 |
 | 7 | 2.11–2.18 | 전체 QA, **미니 강좌 이수 확인**, 영상 3~5분 확인, YouTube 업로드(#blueoceancompetition), mp4 1GB 미만·제품명 파일명, 제출 | ⏳ |
 
 일정이 앞당겨졌으므로 남는 시간은 **영상 완성도와 인터뷰**에 우선 배정한다(심사 5개 항목 각 20% 중 4개가 피치 내용에 좌우됨).
@@ -611,11 +618,26 @@ STATIC HOSTING ──► STUDENT BROWSER
 | 사업성·확장성 | 학생당 41 KB, LLM 0회, 월 240만 회를 $0 호스팅, 수요 인터뷰 결과(사실 그대로) |
 | 발표·도구 활용 | 공식 템플릿 순서, Buyer Utility Map, 열정적인 전달 |
 
-## 22.3 Strategy Canvas 비교 요소
+## 22.3 Strategy Canvas (완성)
 
-가격 접근성, 실시간 인간 멘토링, 데이터의 실제성, 논문 재현 지원, 결과 검증, 새 데이터 적용 평가, 학생별 제공 비용, 연구 과정 기록. 경쟁사 점수는 공식 자료로 확인한 기능만 근거로 매기고, 근거가 없으면 비워 둔다.
+![Strategy Canvas](strategy-canvas.svg)
 
-## 22.4 피치 구성 (공식 템플릿 확인 후 순서 재배치)
+| 요소 | Frontling | 1:1 멘토 연구 (Polygence Core) | 1:1 멘토 연구 (Lumiere) | AI 튜터 (Khanmigo) | 무료 프로젝트 모음 (Science Buddies) |
+|---|---|---|---|---|---|
+| 가격 접근성 | 5 무료 | 1 $2,895부터 (Pods $495) | 1 $2,600–8,400 보고 | 4 월 $4 | 5 무료 |
+| 실시간 1:1 멘토링 | 0 | 5 | 5 | 0 | 0 |
+| 실제 연구 데이터 | 5 | — | — | — | 4 실제 관측 자료 프로젝트 |
+| 논문 재현 지원 | 4 (R1) | — | — | 0 | — |
+| 결과 검증 | 5 결정적 자동 | 3 멘토 검토 | 3 멘토 검토 | 2 AI 피드백 | 0 |
+| 새 데이터 적용 평가 | 5 | 0 | 0 | 0 | 0 |
+| 학생당 낮은 제공 비용 | 5 | 1 | 1 | 3 LLM 추론 비용 | 5 |
+| 연구 과정 기록 | 5 Passport | 3 논문 | 3 논문 | 2 진도 추적 | 1 보고서 가이드 |
+
+점수는 인용한 공개 자료만 근거로 Team PJ가 매긴 값이다. "—"는 확인할 근거가 없어 점수를 매기지 않은 칸이다. "0"은 공개 자료에 해당 기능이 안내되지 않았다는 뜻이며, 존재하지 않는다고 단정하지 않는다. 데이터 원본은 `public/strategy.json` 하나이고 앱 `#/why` 페이지와 SVG가 여기서 생성된다.
+
+근거: Polygence(polygence.org/blog/what-sets-polygence-apart), Lumiere(mojza.org 프로그램 정보, lumiere-education.com), Khanmigo(kidsaitools.com 2026 리뷰, THE Journal 2023), Science Buddies(sciencebuddies.org Big Data 프로젝트). PolyPilot(AI 가이드 + 멘터 체크포인트 4회, 현재 문헌 리뷰 논문만 지원)은 가격 정보가 없어 캔버스에서 제외했다.
+
+## 22.4 피치 구성 (대본: `docs/PITCH.md`, 공식 템플릿 확인 후 순서 재배치)
 
 | 시간 | 내용 |
 |---|---|
@@ -641,7 +663,7 @@ STATIC HOSTING ──► STUDENT BROWSER
 |---|---|---|
 | 1. Technology | 대표 미션 4단계 작동, 기준값 검증, 오류 사례 통과, 조건 기록, Passport 생성 | ✅ |
 | 2. Scientific Trust | 출처 확인, 재현 범위 명시, 힌트 검토, 검토자·범위 공개, 재현성 테스트 | ✅ (도메인 전문가 검토는 미주장) |
-| 3. Blue Ocean | 경쟁 제품 차별성 확인, 차별화-저비용 논리, 비고객 3계층, ERRC, Strategy Canvas | 🔶 ERRC·비고객 완료 / 경쟁 조사·Canvas 미완 |
+| 3. Blue Ocean | 경쟁 제품 차별성 확인, 차별화-저비용 논리, 비고객 3계층, ERRC, Strategy Canvas | ✅ (4개 경쟁 서비스, 공식·공개 자료 근거, 근거 없는 칸은 비움) |
 | 4. Business | 제작비 실측, 가격 가설, 무료 범위, 학교 진입 계획, 시장·매출 가정 분리 | 🔶 배포비 실측 완료 / 제작비 실측·인터뷰 미완 |
 | 5. Pitch | 3~5분, 영어, 실제 구현 사용, 미검증 주장은 가설 표시, 공식 절차 완료 | ⏳ |
 
@@ -684,5 +706,10 @@ Frontling transforms real scientific research into reusable, expert-reviewed lea
 14. Polygence, PolyPilot. https://www.polygence.org/preview/polypilot
 15. Science Buddies, High School Data Science Projects. https://www.sciencebuddies.org/science-fair-projects/science-projects/big-data/high-school
 16. OpenAlex, Open Access and Licensing. https://help.openalex.org/data/works/open-access/
+17. Polygence — What sets Polygence apart (pricing). https://www.polygence.org/blog/what-sets-polygence-apart
+18. Polygence — PolyPilot. https://polygence.org/polypilot
+19. Lumiere Research Scholar Program (tuition range). https://mojza.org/opportunity/lumiere-research-scholar-program/
+20. Khanmigo Review 2026 (pricing). https://www.kidsaitools.com/en/articles/khanmigo-review-2026
+21. THE Journal (2023), Khan Academy cuts district price of Khanmigo. https://thejournal.com/Articles/2023/11/16/Khan-Academy-Cuts-District-Price-of-Khanmigo-AI-Teaching-Assistant.aspx
 
-**End of PRD v2.1**
+**End of PRD v2.2**

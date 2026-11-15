@@ -168,3 +168,23 @@ test('Keeling mission: entering the paper\'s number is diagnosed and routed to i
   await page.locator('#task-r1-pct-1959-1971').getByRole('button', { name: 'Check result' }).click();
   await expect(page.locator('#res-r1-pct-1959-1971')).toContainText('VALID');
 });
+
+test('Why Frontling page renders the Blue Ocean tools from strategy.json', async ({ page }) => {
+  await page.goto('/#/why');
+  await expect(page.locator('img.canvas')).toBeVisible();
+  expect(await page.locator('img.canvas').evaluate((i: HTMLImageElement) => i.naturalWidth)).toBeGreaterThan(0);
+  await expect(page.locator('.errcgrid .errc')).toHaveCount(4);
+  await expect(page.locator('.why')).toContainText('Tier 3');
+});
+
+test('Device check measures this device and exports JSON', async ({ page }) => {
+  await page.goto('/#/device-check');
+  await page.getByRole('button', { name: 'Run device check' }).click();
+  await expect(page.locator('table.data')).toContainText('Mission data ready', { timeout: 20000 });
+  await expect(page.locator('table.data')).not.toContainText('FAIL');
+  const dl = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export result (JSON)' }).click();
+  const j = JSON.parse(readFileSync((await (await dl).path())!, 'utf8'));
+  expect(j.data_verified).toBe(true);
+  expect(j.validation_ms).toBeLessThan(500);
+});

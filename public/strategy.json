@@ -1,0 +1,45 @@
+{
+  "scale": "0 = not offered · 5 = offered at the highest level. Scores are Team PJ's judgement based only on the cited public information; null = not verifiable, not scored.",
+  "factors": [
+    {"id": "price", "label": "Price accessibility"},
+    {"id": "mentor", "label": "Live 1:1 human mentoring"},
+    {"id": "data", "label": "Real research data"},
+    {"id": "repro", "label": "Paper reproduction support"},
+    {"id": "verify", "label": "Verification of student results"},
+    {"id": "transfer", "label": "New-data transfer assessment"},
+    {"id": "cost", "label": "Low delivery cost per student"},
+    {"id": "record", "label": "Research process record"}
+  ],
+  "offerings": [
+    {"name": "Frontling", "highlight": true,
+     "scores": {"price": 5, "mentor": 0, "data": 5, "repro": 4, "verify": 5, "transfer": 5, "cost": 5, "record": 5},
+     "evidence": {"price": "Free, no account", "repro": "R1 partial reproduction (not full method)", "verify": "Deterministic validator, 5 result classes + diagnoses", "transfer": "Prove stage on an unseen dataset, hints off", "cost": "0 LLM calls; ≈41 KB per mission start (docs/BENCHMARK.md)", "record": "Evidence Passport JSON/HTML/PDF"}},
+    {"name": "1:1 mentored research (Polygence Core)",
+     "scores": {"price": 1, "mentor": 5, "data": null, "repro": null, "verify": 3, "transfer": 0, "cost": 1, "record": 3},
+     "evidence": {"price": "Programs start at $2,895; Pods $495", "mentor": "1 student : 1 mentor", "verify": "Mentor review (human, per student)", "transfer": "Not advertised", "cost": "Paid expert time per student", "record": "Research paper / project output"},
+     "sources": ["https://www.polygence.org/blog/what-sets-polygence-apart"]},
+    {"name": "1:1 mentored research (Lumiere)",
+     "scores": {"price": 1, "mentor": 5, "data": null, "repro": null, "verify": 3, "transfer": 0, "cost": 1, "record": 3},
+     "evidence": {"price": "Tuition reported $2,600–$8,400 by track; need-based aid exists", "mentor": "1-on-1 PhD mentor, 9+ sessions", "verify": "Mentor review", "transfer": "Not advertised", "cost": "Paid expert time per student", "record": "Research paper"},
+     "sources": ["https://mojza.org/opportunity/lumiere-research-scholar-program/", "https://www.lumiere-education.com/post/selective-research-programs-teens"]},
+    {"name": "AI tutor (Khanmigo)",
+     "scores": {"price": 4, "mentor": 0, "data": null, "repro": 0, "verify": 2, "transfer": 0, "cost": 3, "record": 2},
+     "evidence": {"price": "$4/month for learners", "verify": "AI feedback (not deterministic)", "repro": "Not advertised", "transfer": "Not advertised", "cost": "LLM inference per conversation; Khan Academy cited high AI compute costs", "record": "Progress tracking for teachers"},
+     "sources": ["https://www.kidsaitools.com/en/articles/khanmigo-review-2026", "https://thejournal.com/Articles/2023/11/16/Khan-Academy-Cuts-District-Price-of-Khanmigo-AI-Teaching-Assistant.aspx"]},
+    {"name": "Free project library (Science Buddies)",
+     "scores": {"price": 5, "mentor": 0, "data": 4, "repro": null, "verify": 0, "transfer": 0, "cost": 5, "record": 1},
+     "evidence": {"price": "Free science fair projects", "data": "Big-data projects use archived real data (e.g. seismometer networks, EPA stations)", "verify": "No automatic result checking advertised", "transfer": "Not advertised", "cost": "Static content", "record": "Report guides"},
+     "sources": ["https://www.sciencebuddies.org/science-fair-projects/science-projects/big-data/high-school"]}
+  ],
+  "errc": {
+    "eliminate": ["Mandatory 1:1 expert mentor", "Selection to join a mission", "Live AI answers per student", "Required paid tools or accounts"],
+    "reduce": ["Content cost per student", "Time to start research", "Teacher design workload", "Repeated human review"],
+    "raise": ["Use of real published papers and data", "Reproducibility of the analysis", "Understanding of method", "Transparency of process and sources"],
+    "create": ["Standardised Research Mission Pack", "Diagnosing result validator", "New-data transfer assessment", "Research Evidence Passport"]
+  },
+  "noncustomers": [
+    {"tier": "Tier 1 · Soon-to-be", "who": "Students already trying research with chatbots and free material, unsure whether their results are right", "value": "Structured missions + instant result verification"},
+    {"tier": "Tier 2 · Refusing", "who": "Students and schools that skip mentored programs because of price or selection", "value": "Free, non-selective access"},
+    {"tier": "Tier 3 · Unexplored", "who": "Schools without research-trained teachers or data-research courses", "value": "Ready, reviewed missions — no project design from scratch"}
+  ]
+}

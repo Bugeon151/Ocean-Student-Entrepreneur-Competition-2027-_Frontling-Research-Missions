@@ -58,6 +58,8 @@ mkdirSync(OUT, { recursive: true });
 const index: unknown[] = [];
 for (const id of readdirSync(SRC).sort()) {
   const src = join(SRC, id), out = join(OUT, id);
+  if (readJ(join(src, 'review/approval.json')).status === 'DRAFT') { console.log(`skip ${id}: DRAFT (not published)`); continue; }
+  if (!BUILDERS[id]) throw new Error(`${id}: no dataset builder registered in build-packs.ts`);
   const m = readJ(join(src, 'mission.json'));
   const data = BUILDERS[id]();
   mkdirSync(join(out, 'datasets'), { recursive: true });

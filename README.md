@@ -2,7 +2,7 @@
 
 **The Research Lab Without the Lab.** Students reproduce part of a real published result from real public data, investigate their own question, and prove they can apply the method to data they have never seen — in the browser, with no account and no live AI writing their answers.
 
-Built for the Blue Ocean Student Entrepreneur Competition 2027 · Team PJ · [PRD v2.1](docs/PRD.md) · [Benchmark report](docs/BENCHMARK.md)
+Built for the Blue Ocean Student Entrepreneur Competition 2027 · Team PJ · [PRD v2.2](docs/PRD.md) · [Benchmark report](docs/BENCHMARK.md) · [Strategy canvas](docs/strategy-canvas.svg) · [Pitch draft](docs/PITCH.md)
 
 ## Missions
 
@@ -23,6 +23,23 @@ content/missions/<id>  +  data-src/ (pinned public data)
 - **Validator** (`src/core/validator.ts`): deterministic; returns `VALID | OUT_OF_RANGE | FORMAT_ERROR | METHOD_MISMATCH | INCOMPLETE` plus a diagnosis such as `FAHRENHEIT`, `FENCEPOST`, `PUBLISHED_VALUE`.
 - **Hints** (`src/core/hints.ts`): pre-written, approved only, unlocked one level at a time after a failed check and a written attempt, routed by diagnosis; disabled in Prove.
 - **Evidence Passport** (`src/core/evidence.ts`): JSON / HTML / print-to-PDF with data hashes, every attempt, hints used, independent first submissions and an evidence SHA-256.
+
+## In-app pages
+
+- `#/` mission library · `#/m/<id>/…` the four stages and Evidence
+- `#/why` — Strategy Canvas, ERRC grid and noncustomer tiers, rendered from `public/strategy.json` (also `npm run canvas` → `docs/strategy-canvas.svg`)
+- `#/device-check` — measures any laptop against the PRD performance targets and exports JSON (for real low-spec hardware evidence)
+
+## Authoring a new mission (FR-011)
+
+```bash
+npm run author -- discover "sea level rise tide gauge"        # OpenAlex: open-access papers with DOIs
+npm run author -- scaffold sea-level-2025 10.xxxx/yyyy         # DRAFT skeleton (never published while DRAFT)
+ANTHROPIC_API_KEY=... npm run author -- draft sea-level-2025 "scope"   # AI draft, always status "draft"
+npm run author -- approve sea-level-2025 "Reviewer Name" --all-hints   # named human approval
+npm run build                                                  # release gate decides if it ships
+```
+A new mission also needs a dataset builder entry in `scripts/build-packs.ts` (pinned source data → clean CSVs).
 
 ## Run
 

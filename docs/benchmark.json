@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T12:58:19.253Z",
+  "generated_at": "2026-11-15T13:07:58.124Z",
   "machine": {
     "cpus": 2,
     "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
@@ -7,6 +7,10 @@
     "node": "v22.23.4"
   },
   "tests": {
+    "authoring.test.ts": {
+      "passed": 5,
+      "total": 5
+    },
     "benchmark-a.test.ts": {
       "passed": 11,
       "total": 11
@@ -30,8 +34,8 @@
   },
   "sizes_bytes": {
     "app": {
-      "raw": 42506,
-      "gz": 16074
+      "raw": 58933,
+      "gz": 21116
     },
     "packs": {
       "gistemp-2024": {
@@ -44,34 +48,34 @@
       }
     },
     "per_student_transfer_gzip": {
-      "gistemp-2024": 41763,
-      "keeling-co2": 28887
+      "gistemp-2024": 46805,
+      "keeling-co2": 33929
     }
   },
   "validator_node_ms": {
-    "p50": 0.00133,
-    "p99": 0.00425,
-    "max": 5.6522
+    "p50": 0.0012,
+    "p99": 0.00402,
+    "max": 4.6907
   },
   "browser_ms": {
     "normal_cpu": {
-      "app_initial_load_ms": 145,
-      "gistemp_data_ready_ms": 114,
-      "stage_switch_ms": 74,
-      "save_ms": 0.032,
-      "js_heap_mb": 3.078
+      "app_initial_load_ms": 108,
+      "gistemp_data_ready_ms": 123,
+      "stage_switch_ms": 54,
+      "save_ms": 0.004,
+      "js_heap_mb": 3.134
     },
     "cpu_4x_slowdown": {
-      "app_initial_load_ms": 374,
-      "gistemp_data_ready_ms": 290,
-      "stage_switch_ms": 162,
-      "save_ms": 0.032,
-      "js_heap_mb": 3.06
+      "app_initial_load_ms": 347,
+      "gistemp_data_ready_ms": 257,
+      "stage_switch_ms": 111,
+      "save_ms": 0.082,
+      "js_heap_mb": 3.13
     }
   },
   "distribution": {
     "llm_calls_per_student": 0,
-    "github_pages_students_per_month_within_soft_limit": 2394463,
+    "github_pages_students_per_month_within_soft_limit": 2136523,
     "cloudflare_pages_static_bandwidth": "unlimited on free plan (pages.cloudflare.com)"
   }
 }

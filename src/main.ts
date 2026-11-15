@@ -9,6 +9,7 @@ import { stageDone, stageUnlocked, percent } from './core/progress';
 import { buildPassport, passportHTML } from './core/evidence';
 import { mean, olsLine, range, type Point } from './core/stats';
 import type { QuizItem, StageId, TaskRule } from './core/types';
+import { whyPage, devicePage } from './ui/pages';
 
 const main = document.getElementById('main')!;
 const live = document.getElementById('live')!;
@@ -335,6 +336,8 @@ async function route() {
   const [, kind, id, view] = location.hash.replace(/^#\/?/, '#/').split('/');
   try {
     if (kind === 'm' && id) await mission(id, view || 'overview');
+    else if (kind === 'why') { state = null; main.replaceChildren(await whyPage()); }
+    else if (kind === 'device-check') { state = null; main.replaceChildren(devicePage()); }
     else { state = null; await library(); }
   } catch (err) {
     main.replaceChildren(h('div', { class: 'error', role: 'alert' }, h('h1', {}, 'Something went wrong'), h('p', {}, String((err as Error).message)), h('p', {}, 'Your saved progress is not affected.'), h('a', { class: 'btn', href: '#/' }, 'Back to missions')));

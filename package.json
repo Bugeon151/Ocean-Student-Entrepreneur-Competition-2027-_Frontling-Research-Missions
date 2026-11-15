@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Frontling Research Missions — The Research Lab Without the Lab",
+  "description": "Frontling Research Missions \u2014 The Research Lab Without the Lab",
   "scripts": {
     "packs": "tsx scripts/build-packs.ts",
     "check": "tsx scripts/check-packs.ts",
@@ -12,7 +12,9 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "bench": "tsx scripts/bench.ts",
-    "verify": "npm run build && npm test && npm run e2e && npm run bench"
+    "verify": "npm run build && npm test && npm run e2e && npm run bench",
+    "author": "tsx scripts/author.ts",
+    "canvas": "tsx scripts/canvas.ts"
   },
   "license": "MIT",
   "devDependencies": {
